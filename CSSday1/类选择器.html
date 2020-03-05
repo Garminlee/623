@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基础选择器之类选择器</title>
+    <style>
+        /* 类选择器口诀：样式点定义 结构类调用 一个或多个 开发最常用 */
+        
+        .red {
+            color: red;
+        }
+        
+        .sexy-pink {
+            color: hotpink;
+        }
+        
+        .font80 {
+            font-size: 80px;
+        }
+        /* 练习 */
+        
+        .red-div {
+            height: 50px;
+            width: 50px;
+            background-color: red;
+        }
+        
+        .green-div {
+            height: 50px;
+            width: 50px;
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li class="red">类选择器口诀</li>
+        <li class="sexy-pink">样式点定义</li>
+        <li class="red">结构类调用</li>
+        <li>谁要调用谁就加个class</li>
+    </ul>
+    <ol>
+        <li class="red">一个或多个</li>
+        <li>开发最常用</li>
+        <li>熟练掌握！</li>
+    </ol>
+    <!-- 多类名选择器：一个标签可以有多个类名，每个类命中间用空格隔开 -->
+    <p class="red font80">多类名选择器</p>
+
+    <!-- 练习 -->
+
+    <div class="red-div"></div>
+    <div class="green-div"></div>
+    <div class="red-div"></div>
+</body>
+
+</html>
