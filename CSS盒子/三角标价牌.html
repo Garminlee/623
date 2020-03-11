@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三角标价牌</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            margin: 100px auto;
+            width: 200px;
+            height: 30px;
+            background-color: #fcfcfc;
+            border: 1px solid red;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 8px;
+        }
+        
+        .box .price {
+            position: relative;
+            float: left;
+            background-color: red;
+            height: 100%;
+            width: 100px;
+            font-weight: 700;
+            color: #ffffff;
+            border-radius: 8px;
+            border-top-right-radius: 0;
+        }
+        
+        .box .price i {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 0;
+            width: 0;
+            line-height: 0;
+            font-size: 0;
+            border-width: 30px 15px 0 0;
+            border-style: solid;
+            border-color: transparent #ffffff transparent transparent;
+        }
+        
+        .box .yuanjia {
+            color: gray;
+            font-size: 14px;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <span class="price">
+            ￥1000
+            <i></i>
+        </span>
+        <span class="yuanjia">￥6230</span>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS三角</title>
+    <style>
+        .box {
+            position: relative;
+            height: 249px;
+            width: 100px;
+            background-color: gray;
+            margin: 100px auto;
+        }
+        
+        .box span {
+            position: absolute;
+            top: 15px;
+            right: -10px;
+            width: 0;
+            height: 0;
+            line-height: 0;
+            font-size: 0;
+            border: 5px solid transparent;
+            border-left-color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"><span></span></div>
+</body>
+
+</html>

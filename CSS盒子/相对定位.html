@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>相对定位</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+        
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            /* 相对定位以自己原来的位置为原点坐标开始移动 且不脱标 会保留原来的位置 */
+            position: relative;
+            top: 100px;
+            left: 200px;
+        }
+        
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+
+</html>
