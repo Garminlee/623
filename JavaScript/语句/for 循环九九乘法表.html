@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var str = '';
+        for (i = 1; i <= 9; i++) {
+            for (j = 1; j <= i; j++) {
+                //str += '☆'； 模拟五角星的做法排版 然后把五角星换成需要的内容
+                //1×2=2；内容格式写好以后 一一对照着填进去
+                str += j + '×' + i + '=' + i * j + '\t';
+            }
+            str += '\n';
+        }
+        console.log(str);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var str = '';
+        for (i = 1; i <= 10; i++) {
+            for (j = i; j <= 10; j++) {
+                str = str + '☆';
+            }
+            str += '\n';
+        }
+        console.log(str);
+        //让列数初始量等于行数，这样在行数自增的时候列数可以随之递减，达到倒三角效果
+
+
+        //下面是正三角 的两种方法
+
+        var str = '';
+        for (i = 1; i <= 10; i++) {
+            for (j = 11 - i; j <= 10; j++) {
+                str = str + '☆';
+            }
+            str += '\n';
+        }
+        console.log(str);
+
+        var str = '';
+        for (i = 1; i <= 10; i++) {
+            for (j = 1; j <= i; j++) {
+                str = str + '☆';
+            }
+            str += '\n';
+        }
+        console.log(str);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

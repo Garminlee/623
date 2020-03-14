@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var cash = 100;
+        var i = 1;
+        do {
+            var move = prompt('请输入您想操作的选项:' + '\n' + '1.存钱' + '\n' + '2.取钱' + '\n' + '3.显示余额' + '\n' + '4.退出' + '\n');
+            switch (move) {
+                case '1':
+                    var cuncash = prompt('请输入您要存的金额');
+                    cash += parseFloat(cuncash);
+                    alert('您的余额还有' + cash + '元');
+                    break;
+                case '2':
+                    var qucash = prompt('请输入您要取走的金额');
+                    if (parseFloat(qucash) > parseFloat(cash)) {
+                        alert('您的余额不足');
+                        continue;
+                    }
+                    cash = cash - parseFloat(qucash);
+                    alert('您的余额还有' + cash + '元');
+                    break;
+                case '3':
+                    alert('您的余额还有' + cash + '元');
+                    break;
+                case '4':
+                    alert('您正在退出');
+                    break;
+            }
+        } while (move < 4);
+        //我真棒！hold on hold on
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
