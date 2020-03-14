@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*  前置递增：++变量        先执行自增操作 再返回给变量值，即先自加更新变量值 再返回。*/
+        /*后置递增：变量++        先返回变量值，再执行自增操作   即先返回值 再自加更新变量值。 */
+        var num1 = 10;
+        var b = ++num1 + 10;
+        console.log(b); //21
+        console.log(num1); //11
+
+        var num2 = 10
+        var c = num2++ + 10;
+        console.log(c); //20
+        console.log(num2); //11
+        var num3 = 10;
+        var result = num3++ + ++num3;
+        console.log(result); // 10+12=22
+        console.log(num3); //12
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

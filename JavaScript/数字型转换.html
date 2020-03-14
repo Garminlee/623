@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //parseInt() 可以把字符串转换成整数数值型
+        /*         var age = prompt('请输入您的年龄');
+                console.log(parseInt(age)); */
+        console.log(parseInt(6.23)); //只取整数6
+        console.log(parseInt('120.85px')); //120 会去掉单位取整数
+        //parseFloat() 可以把字符串转换成浮点数数值型。 用法和parseInt()一致，结果是浮点数值。
+        //Number() 强制转换成数值型，这个方法在转换八进制的时候会忽略前导
+        var str = '562';
+        console.log(Number(str)); //562
+        console.log(Number(0xA)); //10
+        console.log(Number('016')); //16
+        console.log(Number(undefined)); //NaN
+        var nu = null;
+        console.log(Number(nu)); //0
+        console.log(Number(' ')); //0
+
+
+        //隐式转换 利用计算符号 * - / 
+        console.log('623' - 0); //623
+        console.log('623' - 600); //23
+        console.log('623' * 1); //623
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

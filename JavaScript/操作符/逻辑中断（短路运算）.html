@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 逻辑与   语法：表达式1&&表达式2  
+        // 如果第一个表达式值为真，则返回表达式2
+        // 如果第一个表达式值为假，则返回表达式1 
+        console.log(123 && 456); //456
+        console.log('' && 123); //''
+        console.log(123 && 456 && 0); //0
+        console.log(NaN && 45456 && 0 && 54564646); //NaN
+        // 逻辑或  语法：表达式1||表达式2
+        // 如果第一个表达式值为真，则返回表达式1
+        // 如果第一个表达式值为假，则返回表达式2
+        console.log(123 || 456); //123
+        console.log(0 || 456); //456
+        console.log(215 || 5454 || NaN); //215
+        console.log(0 || NaN || undefined || '' || 45456 || 0); //456456
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
