@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function getSum(num1, num2) {
+            console.log(num1 + num2);
+
+        }
+        // 当形参实参个数匹配时 正确输出结果
+        getSum(1, 9);
+        // 当实参个数多于形参个数时，依次取形参个数的实参进行操作，多余的实参忽略
+        getSum(1, 8, 10);
+        // 当实参个数少于形参个数时，因为形参可以看作是一个没有被赋值的变量，等待接收实参值，所以缺少对应实参的形参值为undefined，代入函数体进行操作。
+        getSum(1);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

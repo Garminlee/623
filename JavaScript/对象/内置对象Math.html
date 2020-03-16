@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Math 不是构造函数， 属性方法可以查阅MDN文档。
+        // Math.random() 返回一个[0, 1） 之间的浮点数。 
+        // 通过 Math.floor(Math.random() * (max - min + 1)) + min; 方法可以获得两个数之间的随机整数并且包括这两个数。
+
+        // function getRandom(min, max) {
+        //     return Math.floor(Math.random() * (max - min + 1)) + min;
+        // }
+        // // getRandom() 这个函数就可以返回其中的一个随机数。
+        // var arr = ['job', 'andy', 'garmin', 'lucy', 'linda', 'david', 'klaus'];
+        // console.log(arr[getRandom(0, arr.length - 1)]);
+
+
+        // 案例： 随机生成1-50之间的数字，输入一个数字
+        // 若大于该数字，则提示数字大了  继续猜；
+        // 若小于该数字，则提示数字小了，继续；
+        // 若等于该数字，则提示猜对了，结束程序。
+        // 只有十次机会 次数用光也结束程序。
+
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        var goal = getRandom(1, 50);
+        var i = 0;
+        do {
+            var test = parseInt(prompt('欢迎来到猜数字游戏:' + '\n' + '请输入一个数字，猜猜看吧！' + '\n'));
+            if (test == goal) {
+                alert('恭喜您猜中了本期中奖号码！');
+                break;
+            } else if (test > goal) {
+                alert('啊哦，好像不对哦，或许数字比这个要小一些呢');
+            } else {
+                alert('可恶，中奖号码竟然要比这个数字还大呢');
+            }
+            i++;
+        } while (i < 10);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

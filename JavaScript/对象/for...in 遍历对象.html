@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Hero(name, type, blood, attack) {
+            this.name = name;
+            this.type = type;
+            this.blood = blood;
+            this.attack = function(farOrNear) {
+                console.log(farOrNear);
+
+            }
+        }
+        var lp = new Hero('廉颇', '力量型', '500血量');
+
+        // 利用for in 来遍历对象lp
+        for (k in lp) {
+            console.log(k); //直接写变量得到的是属性名
+            console.log(lp[k]); //这样才会得到属性值，[]里面因为是写的变量名所以不要加引号
+
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

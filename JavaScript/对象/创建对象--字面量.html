@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //就是花括号{ }里面包含了表达这个具体对象的属性和方法。
+        var obj = {
+                uname: 'garmin',
+                age: 18,
+                sex: 'man',
+                sayHi: function() {
+                    console.log('hi');
+                }
+            }
+            //属性和方法采用键值对的形式
+            //多个属性或者方法中间用逗号隔开
+            //方法冒号后面跟的是一个匿名函数
+            //调用对象的属性   对象名.属性名    或者  对象名['属性名']
+            //调用对象的方法   对象名.方法名()
+
+        var dog = {
+            name: 'keke',
+            type: '阿拉斯加犬',
+            age: 5,
+            color: 'red-brown',
+            bark: function() {
+                console.log('汪汪汪');
+
+            },
+            showFilm: function() {
+                console.log('会演电影');
+
+            }
+        }
+        console.log(dog.name);
+        console.log(dog.color);
+        dog.bark();
+        console.log(dog['type']);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

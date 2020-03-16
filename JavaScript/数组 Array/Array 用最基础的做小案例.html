@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 找最大值
+        // 先声明一个变量Max来存放最大值，然后去遍历数组依次和max比较，大的就存进max
+        var arr = [21.5, 61, 25, 4, 556, 84, 12, 2, 5, 36, 464];
+        var max = arr[0];
+        for (var i = 1; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+        console.log(max);
+
+        // 数组转换为分割字符串 要求输出'red|pink|blue|purple|green|'
+        var arr1 = ['red', 'pink', 'blue', 'purple', 'green'];
+        var sum = arr1[0];
+        var mark = '|'
+        for (var i = 1; i < arr1.length; i++) {
+            sum = sum + mark + arr1[i];
+        }
+        console.log('\'' + sum + '\'');
+
+        // 新建个数组 里面存放1~10的整数
+        var arr2 = [];
+        for (i = 1; i <= 10; i++) {
+            arr2[arr2.length] = i;
+        }
+        console.log(arr2);
+
+        // 筛选数组  选出数组中大于等于10的元素 放入新的数组
+        var arr3 = [2, 0, 6, 10, 77, 0, 52, 0, 10, 25, 7, , 51, 1, 2];
+        var arr4 = [];
+        for (i = 0; i < arr3.length; i++) {
+            if (arr3[i] >= 10) {
+                arr4[arr4.length] = arr3[i];
+            }
+        }
+        console.log(arr4);
+
+        //删除指定数组元素 将数组中的0全部删除
+        var arr5 = [1, 5, 0, 12, 13, 0, 5, 0, 22, 0, 0, 155, 6, 7, 0];
+        var arr6 = [];
+        for (i = 0; i < arr5.length; i++) {
+            if (arr5[i] !== 0) {
+                arr6[arr6.length] = arr5[i];
+            }
+        }
+        console.log(arr6);
+
+        //  翻转数组 将数组的元素反过来存放
+        var arr7 = ['red', 'orange', 'yellow', 'green', 'skyblue', 'blue', 'purple'];
+        var arr8 = [];
+        for (i = 1; i <= arr7.length; i++) {
+            arr8[arr8.length] = arr7[arr7.length - i];
+        }
+        console.log(arr8);
+        //做法2 
+        var arr9 = ['red', 'orange', 'yellow', 'green', 'skyblue', 'blue', 'purple'];
+        var arr10 = [];
+        for (i = arr9.length - 1; i >= 0; i--) {
+            arr10[arr10.length] = arr9[i];
+        }
+        console.log(arr10);
+
+        // 数组排序 --冒泡排序 从小到大排序
+        var arrA = [5, 6, 3, 7, 15, 7, 8, 0, 21];
+        for (i = 0; i <= arrA.length - 1; i++) {
+            for (var j = 0; j <= arrA.length - i - 1; j++) {
+                if (arrA[j] > arrA[j + 1]) {
+                    var temp = arrA[j];
+                    arrA[j] = arrA[j + 1];
+                    arrA[j + 1] = temp;
+                }
+            }
+        }
+        console.log(arrA);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

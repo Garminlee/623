@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //变量提升，会把var提前但是不赋值。 函数提升是把函数提前但不调用。
+        //案例
+        f1();
+        console.log(c);
+        console.log(b);
+        console.log(a);
+
+        function f1() {
+            var a = b = c = 9; //相当于var a = 9; b=9;c=9; b 和 c没有声明 属于全局变量
+            console.log(a);
+            console.log(b);
+            console.log(c);
+
+        }
+
+        // 以上案例预解析为
+        // function f1() {
+        //     var a;
+        //     a = b = c = 9;
+        //     console.log(a); //输出9
+        //     console.log(b); //输出9
+        //     console.log(c); //输出9
+
+        // }
+        // f1();
+        // console.log(c); //输出9
+        // console.log(b); //输出9
+        // console.log(a); //报错 因为a是属于局部变量
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
