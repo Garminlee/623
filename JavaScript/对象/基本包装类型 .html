@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //         基本包装类型就是把简单数据类型包装成复杂数据类型，以此获得属性和方法。
+        // JS中基本包装类型有三种： String   Number  和  Boolean 。
+        var str = 'garmin';
+        console.log(str.length);
+
+        //上述代码的基本包装类型的执行过程如下：
+        // 1. 先创建一个临时变量，把简单数据类型包装成复杂数据类型
+        var temp = new String('garmin');
+        // 2. 把临时变量的值赋值给声明的变量
+        var str = temp;
+        // 3. 销毁临时变量
+        temp = null;
+
+        // 虽然在代码中直接给已赋值的字符串重新赋值可以返回最新的值，但是并不是最新的值更新了最初的值，最初的字符串值依然在内存中存在，重新赋值只是在内存中新开辟一个空间存放新的值，然后把原先的字符串的地址更改为这个新的空间，相当于更改了指针
+        var str1 = 'lee';
+        str1 = 'zhang';
+        // 当重新给str赋值的时候，原先的'lee'并不会被修改，仍然在内存中存在，
+        // 而新的值'zhang' 是在内存中那个新开辟的空间存放的，这就是字符串的不可变特性
+
+        // 字符串的位置检索方法 indexOf()    lastIndexOf()
+        // 案例 查询字符串中'o' 出现的位置以及次数
+        var strNew = 'abcoefoxyozzopppsoodoo';
+        var index = strNew.indexOf('o');
+        var count = 0;
+        while (index !== -1) {
+            console.log(index);
+            index = strNew.indexOf('o', index + 1);
+            count++;
+        }
+        console.log('o 一共出现了' + count + '次');
+
+        // 案例 查询数组中 red出现的次数和位置
+        var arr = ['red', 'blue', 'red', 'green', 'pink', 'red'];
+        var index1 = arr.indexOf('red');
+        var num = 0;
+        while (index1 !== -1) {
+            num++;
+            console.log(index1);
+            index1 = arr.indexOf('red', index1 + 1);
+        }
+        console.log('red出现的总次数是：' + num);
+
+        // 案例 查询上面的strNew 中各个字符出现的次数以及出现次数最多的字符
+        // 创建一个空对象，先遍历整个字符串把每个字符村给这个对象 若有这个属性了就+1，没有则赋值1
+        var strNew = 'abcoefoxyozzopppsoodoo';
+        var kong = {};
+        for (i = 0; i < strNew.length; i++) {
+            var chars = strNew.charAt(i);
+            if (kong[chars]) {
+                kong[chars]++;
+            } else {
+                kong[chars] = 1;
+            }
+        }
+        console.log(kong); //由此得到了kong这个新的对象 然后取出其中的属性值进行比较
+        var max = 0;
+        var ch = '';
+        for (var k in kong) {
+            if (kong[k] > max) {
+                max = kong[k];
+                ch = k;
+            }
+        }
+        console.log('出现次数最多的是字符' + ch + '一共出现了' + max + '次');
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

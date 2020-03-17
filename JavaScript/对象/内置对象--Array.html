@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 创建数组的两种方式
+        // 字面量
+        var arr = [1, 2, 3, 4, 5];
+        // new 加 Array构造函数
+        var arr1 = new Array(1, 2, 3, 4, 5);
+
+        // 检测数组 instanceof  运算符  和 Array.isArray(参数) 方法 后者是H5新增方法
+        var arr2 = [];
+        var obj = {};
+        console.log(arr2 instanceof Array);
+        console.log(obj instanceof Array);
+        console.log(Array.isArray(arr2));
+        console.log(Array.isArray(obj));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //  往数组内部添加元素 可以用push()  和  unshift()
+        // push()  
+        // (1) 往数组 末尾 添加元素
+        // (2) 可以接收多个参数，依次添加
+        // (3) pop() 结束后 返回的结果是 新数组的长度
+        // (4) 会改变原数组
+        var arr = [];
+        console.log(arr.push(1, 'lee', 55)); //返回数组长度
+
+        console.log(arr); // 1,'lee',55
+
+
+        // unshift() 
+        // (1) 往数组 最前面 添加元素
+        // (2) 可以接收多个参数，依次添加
+        // (3) unshift() 结束后 返回的结果是 新数组的长度
+        // (4) 会改变原数组
+        console.log(arr.unshift('garmin', 777)); //返回数组长度
+
+        console.log(arr); // 'garmin', 777,1,'lee',55
+
+
+        // 删除数组内的元素 可以用 pop()    和  shift() 
+
+        // (1) pop() 删除数组的 最后 一个 元素 数组长度-1 
+        // (2) 没有参数
+        // (3) 返回 删除的元素
+        // (4) 会修改原数组
+
+        console.log(arr.pop());
+        console.log(arr); // 'garmin', 777,1,'lee'
+
+        // (1) shift()  删除数组的 第一个 元素  数组长度-1  
+        // (2) 没有参数
+        // (3) 返回 删除的元素
+        // (4) 会修改原数组
+        console.log(arr.shift());
+        console.log(arr); // 777,1,'lee'
+
+
+        // 案例 把数组中小于1500的数删除，剩下的组成新的数组
+        var arrNew = [];
+        var arr = [1, 2000, 2500, 3100, 1400, 50];
+        for (var i = 0; i <= arr.length; i++) {
+            if (arr[i] >= 1500) {
+                arrNew.push(arr[i]);
+            }
+        }
+        console.log(arrNew);
+
+        // 数组排序 1.翻转数组   2. 数组排序（冒泡排序）
+        // 1.翻转数组  reverse()
+        var arrR = ['garmin', 'red', 'pink'];
+        arrR.reverse();
+        console.log(arrR); // pink, red, garmin
+
+        // 2. 数组排序（冒泡排序)  sort()
+        var arrM = [1, 25, 33, 11, 22, 10, 5, 7];
+        arrM.sort();
+        console.log(arrM); // 返回的顺序并不是正确的 因为sort比较的是字符串大小
+
+        arrM.sort(function(a, b) {
+                return a - b;
+            }) // 在sort里输入一个比较函数可以实现正确排序 
+        console.log(arrM);
+
+        // indexOf()  返回数组中给定元素的第一个索引  后面重复的不返回 ，若没有找到给定元素则返回-1。
+        // lastIndexOf()  返回数组中给定元素的最后一个索引（相当于从后开始查找），若没有找到给定的元素则返回-1。
+        var arrI = [1, 5, 3, 15, 11, 66, 22, 15, 0];
+        console.log(arrI.indexOf(11)); //4
+        console.log(arrI.lastIndexOf(15)); //7
+
+        // 数组去重
+        // 遍历旧数组去查询新数组 如果新数组有该元素了就不添加，若没有就添加进新数组
+        var arrOld = ['c', 'a', 'z', 'a', 'x', 'a', 'x', 'c', 'b'];
+
+        function getNoRepeat(arr) {
+            var arrNo = [];
+            for (i = 0; i <= arr.length - 1; i++) {
+                if (arrNo.indexOf(arr[i]) === -1) {
+                    arrNo.push(arr[i]);
+                }
+            }
+            return arrNo;
+        }
+        console.log(getNoRepeat(arrOld));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

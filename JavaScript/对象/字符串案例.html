@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 案例 给定一个字符串 如：'absjhdjfjkasjjjhhasdhffgsssss35546111130' 问题如下
+        // 1. 字符串的长度
+        // 2. 去除指定位置的字符，如0，3，5，9等
+        // 3. 查找指定字符是否在以上字符串中存在，如  i,c,b等
+        // 4. 替换指定字符，如g 替换22 ， ss替换b等操作方法
+        // 5. 截取指定开始位置到结束位置的字符串，如： 取得1-5的字符串
+        // 6. 找出以上字符串中出现次数最多的字符和出现的次数
+
+        var str = 'absjhdjfjkasjjjhhasdhffgsssss35546111130';
+        // 1. 字符串的长度
+        console.log(str.length);
+
+        // 2. 去除指定位置的字符，如0，3，5，9等
+        var str1 = '';
+
+        function getDel(index) {
+            str1 = str.replace(str[index], '');
+            return str1;
+        }
+        getDel(4);
+        console.log(str1);
+
+        // 3. 查找指定字符是否在以上字符串中存在，如  i,c,b等
+        function getSearch(ch) {
+            var num = 0;
+            for (i = 0; i < str.length; i++) {
+                if (ch === str.charAt(i)) {
+                    num++;
+                    break;
+                }
+            }
+            if (num > 0) {
+                console.log('字符串中有' + ch + '这个字符');
+
+            } else {
+                console.log('字符串中没有' + ch + '这个字符');
+            }
+        }
+        getSearch('z');
+        getSearch('h');
+
+        // 4. 替换指定字符，如g 替换22 ， ss替换b等操作方法
+        var str2 = '';
+
+        function getExchange(oldch, newch) {
+            str2 = str.replace(oldch, newch)
+            return str2;
+        }
+        getExchange('jjj', 1);
+        console.log(str2);
+
+
+        // 5. 截取指定开始位置到结束位置的字符串，如： 取得1-5的字符串
+        var str3 = '';
+
+        function getCut(start, count) {
+            str3 = str.substr(start, count);
+            return str3;
+
+        }
+        getCut(1, 5);
+        console.log(str3);
+
+        // 6. 找出以上字符串中出现次数最多的字符和出现的次数
+        var empty = {};
+
+        function getHot() {
+            for (var i = 0; i < str.length; i++) {
+                if (empty[str.charAt(i)]) {
+                    empty[str.charAt(i)]++;
+                } else {
+                    empty[str.charAt(i)] = 1;
+                }
+            }
+            var max = 0;
+            var strmax = '';
+            for (var k in empty) {
+                if (empty[k] > max) {
+                    max = empty[k];
+                    strmax = k;
+                }
+            }
+            return strmax + '是出现次数最多的字符' + '一共出现了' + max + '次';
+        }
+        console.log(getHot());
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Date 是一个构造函数，必须使用 new 操作符来调用创建日期对象。
+        var date = new Date();
+        // 使用Date 如果没有参数 则返回当前系统时间
+        // 也可以使用参数，字符串型：'2020-03-15 12：24：30'     数字型: 2020,03,15
+        var date1 = new Date(2020, 03, 15);
+        console.log(date1); // 返回的是 四月 而不是 三月 
+        var date2 = new Date('2020-03-15');
+        console.log(date2); //返回的是三月
+
+        //格式化日期  年月日
+        var date3 = new Date();
+        console.log(date3.getFullYear()); //获取年份
+        console.log(date3.getMonth()); //获取月份  注意1-12月份是对应的0-11
+        console.log(date3.getDate()); //获取当前日期
+        console.log(date3.getDay()); // 获取星期几 注意周日到周六对应 0-6
+
+        // 格式化日期  时分秒
+        console.log(date3.getHours()); // 获取时
+        console.log(date3.getMinutes()); // 获取分
+        console.log(date3.getSeconds()); // 获取秒
+
+        // 输出当前日期
+        var year = date3.getFullYear();
+        var month = date3.getMonth() + 1;
+        var dates = date3.getDate();
+        var weeks = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六', ];
+        var week = weeks[date3.getDay()];
+        console.log('今天是' + year + '年' + month + '月' + dates + '日' + week);
+        // 输出当前时间
+        function getTtime() {
+            var time = new Date();
+            var h = time.getHours();
+            h = h > 10 ? h : '0' + h;
+            var m = time.getMinutes();
+            m = m > 10 ? m : '0' + m;
+            var s = time.getSeconds();
+            s = s > 10 ? s : '0' + s;
+            return h + ':' + m + ':' + s;
+        }
+        console.log(getTtime());
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

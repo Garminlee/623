@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 1.通过ID 获取元素 getElementById() 参数是id的字符串 返回值是一个元素对象 -->
+    <!-- 2. 根据 标签名 获取元素 getElementByTagName()  参数是字符串  返回值是对应标签名的 对象集合    以伪数组的形式存储的
+    还可以根绝某个元素（父元素等）内部所有指定标签名的子元素 只需要把document改为对应的父元素名  element.getElementByTagName()-->
+    <!-- 3. 根据类名获取元素  getElementByClassName()  参数是字符串 返回值是某些元素对象的集合 以伪数组的形式存储的-->
+    <!-- 4. querySelector()  返回的是第一个元素对象  参数是选择起名字 必须加选择器的符号 
+    querySelectorAll() 返回的是所有对应选择器的元素对象集合-->
+
+</head>
+
+<body>
+    <div id="date">2020-3-17</div>
+    <script>
+        var timer = document.getElementById('date');
+        console.log(timer);
+        console.dir(timer);
+    </script>
+</body>
+
+</html>
