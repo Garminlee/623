@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 400px;
+            margin: 100px auto;
+        }
+        
+        .box .one {
+            outline: none;
+        }
+        
+        .message {
+            display: inline-block;
+            color: #999999;
+            background: url(images/mess.png) no-repeat left center;
+            font-size: 12px;
+            padding-left: 20px;
+        }
+        
+        .wrong {
+            color: red;
+            background: url(images/wrong.png) no-repeat left center;
+        }
+        
+        .right {
+            color: greenyellow;
+            background: url(images/right.png) no-repeat left center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input type="password" class="one">
+        <p class="message">请输入6~16位密码</p>
+    </div>
+    <script>
+        // 1. 获取元素
+        var p = document.querySelector('.message');
+        var input = document.querySelector('.one');
+        // 2. 注册事件 事件处理程序
+
+        input.onblur = function() {
+            if (this.value.length >= 6 && this.value.length <= 16) {
+                p.className = 'right message';
+                p.innerHTML = '输入正确';
+            } else if (this.value.length < 6) {
+                p.className = 'message wrong';
+                p.innerHTML = '输入密码位数小于6位';
+            } else {
+                p.className = 'message wrong';
+                p.innerHTML = '输入密码位数超出了16位';
+            }
+        }
+    </script>
+</body>
+
+</html>

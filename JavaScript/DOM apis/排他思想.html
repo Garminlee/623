@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="allBtns">
+        <button>点我</button>
+        <button>点我</button>
+        <button>点我</button>
+        <button>点我</button>
+        <button>点我</button>
+        <button>点我</button>
+    </div>
+    <script>
+        // 1. 获取元素
+        var btns = document.querySelectorAll('button'); //得到所有button的集合
+        // 2. 给每一个按钮注册事件  需要遍历 
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].onclick = function() {
+                // 内嵌一个for循环把所有的按钮的背景色先清空 再执行把当前按钮变色
+                for (var j = 0; j < btns.length; j++) {
+                    btns[j].style.backgroundColor = '';
+                }
+                this.style.backgroundColor = 'skyblue';
+            }
+        }
+    </script>
+</body>
+
+</html>

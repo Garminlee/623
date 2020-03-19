@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tab栏切换案例</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* 清除浮动 */
+        
+        .clearfix:after {
+            visibility: hidden;
+            clear: both;
+            display: block;
+            content: ".";
+            height: 0
+        }
+        
+        .clearfix {
+            *zoom: 1
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        
+        .tab {
+            width: 1220px;
+            margin: 200px auto;
+        }
+        
+        .tab-list {
+            background-color: rgba(235, 227, 227, 0.575);
+            border: 1px solid #cccccc;
+            border-bottom: 1px solid rgb(211, 23, 23);
+        }
+        
+        .chosen {
+            background-color: rgb(211, 23, 23);
+            color: #ffffff;
+        }
+        
+        .tab-list ul li {
+            float: left;
+            padding: 10px 20px;
+        }
+        
+        .tab-content .item {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab">
+        <div class="tab-list clearfix">
+            <ul>
+                <li class="chosen">商品介绍</li>
+                <li>规格与包装</li>
+                <li>售后保障</li>
+                <li>商品评价</li>
+                <li>手机社区</li>
+            </ul>
+        </div>
+        <div class="tab-content">
+            <div class="item" style="display: block;">商品的介绍信息。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。</div>
+            <div class="item">规格 参数 包装。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。</div>
+            <div class="item">售后保障条例。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。</div>
+            <div class="item">各种评价。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。</div>
+            <div class="item">手机社区相关内容。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。</div>
+        </div>
+    </div>
+    <script>
+        // 1. 获取元素
+        var lis = document.querySelector('.tab').querySelector('.tab-list').querySelectorAll('li');
+        var items = document.querySelector('.tab-content').querySelectorAll('.item');
+        // 2.注册事件 事件执行程序
+        for (var i = 0; i < lis.length; i++) {
+            // 给每个li 设置自定义属性index索引号
+            lis[i].setAttribute('index', i);
+            lis[i].onclick = function() {
+                for (var i = 0; i < lis.length; i++) {
+                    lis[i].className = '';
+                }
+                this.setAttribute('class', 'chosen');
+                var index1 = this.getAttribute('index');
+                for (var j = 0; j < items.length; j++) {
+                    items[j].style.display = 'none';
+                }
+                items[index1].style.display = 'block';
+            }
+        }
+    </script>
+</body>
+
+</html>

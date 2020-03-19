@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        
+        .name {
+            font-size: 12px;
+            color: #999999;
+            outline: none;
+        }
+        
+        .closeAD {
+            position: relative;
+            height: 100px;
+            background-color: pink;
+        }
+        
+        .closeAD .bbttnn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: url(images/wrong.png) no-repeat;
+        }
+        
+        .closeAADD {
+            display: none;
+        }
+        
+        .downMenu {
+            width: 100px;
+        }
+        
+        .downMenu li:nth-of-type(n+2) {
+            display: none;
+        }
+        
+        .downdown li {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <!--    1. 用户名显示隐藏内容
+            2. 关闭广告
+            3. 下拉菜单
+            4. 开关等案例 -->
+
+    <!-- 1. 用户名显示隐藏内容-->
+    <div class="uname">
+        <input type="text" class="name" value="请输入用户名">
+    </div>
+
+    <script>
+        // 1. 获取元素
+        var input = document.querySelector('.name');
+        // 2. 注册事件 事件执行程序
+        input.onblur = function() {
+            if (this.value === '') {
+                this.value = '请输入用户名';
+            }
+            this.style.color = '#999999';
+        }
+        input.onfocus =
+
+            function() {
+                if (this.value === '请输入用户名') {
+                    this.value = '';
+                }
+                this.style.color = 'black';
+            }
+    </script>
+
+    <!-- 2. 关闭广告-->
+    <div class="closeAD">
+        <div class="bbttnn"></div>
+    </div>
+
+    <script>
+        // 1. 获取元素
+        var closeAD = document.querySelector('.closeAD');
+        var bbttnn = document.querySelector('.bbttnn');
+        // 2. 注册事件 事件执行程序
+        bbttnn.onclick = function() {
+            closeAD.className = 'closeAD  closeAADD';
+        }
+    </script>
+
+
+    <!-- 3. 下拉菜单-->
+    <div class="downMenu">
+        <ul>
+            <li>
+                <a href="#">零食</a>
+            </li>
+            <li>
+                <a href="#">薯片</a>
+            </li>
+            <li>
+                <a href="#">坚果</a>
+            </li>
+            <li>
+                <a href="#">辣条</a>
+            </li>
+            <li>
+                <a href="#">火腿肠</a>
+            </li>
+        </ul>
+    </div>
+    <script>
+        // 1. 获取元素
+        var down = document.querySelector('.downMenu');
+        var liebiao = down.querySelector('a');
+        // 2. 注册事件 事件执行程序
+        liebiao.onmouseover = function() {
+            down.className = 'downdown';
+        }
+    </script>
+
+    <!-- 4. 开关灯 -->
+
+    <button class="light">关灯</button>
+    <script>
+        // 1. 获取元素
+        var offlight = document.body;
+        var btn = document.querySelector('.light');
+        // 2. 注册事件 事件执行程序
+        var flag = 0;
+        btn.onclick = function() {
+            if (flag == 0) {
+                offlight.style.backgroundColor = 'black';
+                flag = 1;
+                this.innerHTML = '开灯';
+            } else {
+                offlight.style.backgroundColor = 'transparent';
+                flag = 0;
+                this.innerHTML = '关灯';
+            }
+        }
+    </script>
+
+</body>
+
+</html>

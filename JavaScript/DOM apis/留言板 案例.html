@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留言板案例</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        li {
+            list-style: none;
+            width: 400px;
+            background-color: pink;
+            margin-bottom: 5px;
+        }
+        
+        li a {
+            float: right;
+            font-size: 12px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        
+        .box {
+            width: 1220px;
+            margin: 100px auto;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <textarea name="" id="lyb" cols="30" rows="10"></textarea>
+        <button>发布</button>
+        <ul>
+        </ul>
+        <script>
+            // 1. 获取元素
+            var text = document.querySelector('#lyb');
+            var btn = document.querySelector('button');
+            var ul = document.querySelector('ul');
+            // 2. 注册事件 事件执行程序
+            btn.onclick = function() {
+                if (text.value !== '') { // 如果输入内容不为空 则发布
+                    var li = document.createElement('li'); //创建一个新节点li
+                    li.innerHTML = text.value +
+                        "<a href = 'javascript:;'>删除</a>"; // 新节点li的内容等于文本域中的内容   并且 附加一个 删除 链接 
+                    ul.insertBefore(li, ul.firstElementChild); // 新节点li添加到 ul的第一个子元素节点前
+                    text.value = '';
+                    // 实现删除功能 首先先获取所有的删除链接
+                    var alla = document.querySelectorAll('a');
+                    // 然后 用循环给所有删除链接注册事件
+                    for (i = 0; i < alla.length; i++) {
+                        // 根据哪个链接触发事件就删除哪个链接的父元素li
+                        alla[i].onclick = function() {
+                            ul.removeChild(this.parentNode);
+                        }
+                    }
+
+                } else {
+                    alert('请输入内容');
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html>

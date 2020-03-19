@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        
+        .nav {
+            margin: 100px;
+        }
+        
+        .nav>li {
+            float: left;
+        }
+        
+        .nav ul {
+            display: none;
+        }
+        
+        .title {
+            display: block;
+            width: 100px;
+            text-align: center;
+            color: black;
+            padding: 10px;
+        }
+        
+        .title:hover {
+            background-color: #eeecec;
+            color: coral;
+        }
+        
+        .nav ul li a {
+            display: block;
+            width: 100px;
+            height: 30px;
+            padding: 5px 20px;
+            border: 1px solid coral;
+            border-top: transparent;
+            text-align: center;
+        }
+        
+        .nav ul li a:hover {
+            background-color: #f3e0bafd;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="nav">
+        <li>
+            <a href="#" class="title">吃的</a>
+            <ul>
+                <li>
+                    <a href="#">零食</a>
+                </li>
+                <li>
+                    <a href="#">薯片</a>
+                </li>
+                <li>
+                    <a href="#">坚果</a>
+                </li>
+                <li>
+                    <a href="#">辣条</a>
+                </li>
+                <li>
+                    <a href="#">火腿肠</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" class="title">吃的</a>
+            <ul>
+                <li>
+                    <a href="#">零食</a>
+                </li>
+                <li>
+                    <a href="#">薯片</a>
+                </li>
+                <li>
+                    <a href="#">坚果</a>
+                </li>
+                <li>
+                    <a href="#">辣条</a>
+                </li>
+                <li>
+                    <a href="#">火腿肠</a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#" class="title">吃的</a>
+            <ul>
+                <li>
+                    <a href="#">零食</a>
+                </li>
+                <li>
+                    <a href="#">薯片</a>
+                </li>
+                <li>
+                    <a href="#">坚果</a>
+                </li>
+                <li>
+                    <a href="#">辣条</a>
+                </li>
+                <li>
+                    <a href="#">火腿肠</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        // 1. 获取元素
+        var nav = document.querySelector('.nav');
+        var lis = nav.children; //把nav下面的四个li取得
+        // 2. 注册事件 时间执行程序
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].onmouseover = function() {
+                this.children[1].style.display = 'block';
+            }
+            lis[i].onmouseout = function() {
+                this.children[1].style.display = 'none';
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            width: 400px;
+            border-bottom: 1px solid #cccccc;
+            margin: 150px auto;
+            text-align: center;
+        }
+        
+        .box input {
+            width: 396px;
+            height: 30px;
+            border: 0;
+            outline: none;
+        }
+        
+        .box label {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+        }
+        
+        .box label img {
+            width: 25px;
+            height: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <label for=""><img src="images/close.png" alt=""></label>
+        <input type="password">
+    </div>
+
+    <script>
+        // 1. 获取元素
+        var div = document.querySelector('.box');
+        var label = div.querySelector('label');
+        var input = div.querySelector('input');
+        var img = label.querySelector('img');
+        // 2. 注册事件 3. 事件处理程序
+        var flag = 1;
+        label.onclick = function() {
+            if (flag == 0) {
+                input.type = 'password';
+                flag = 1;
+                img.src = 'images/close.png';
+            } else {
+                input.type = 'text';
+                flag = 0;
+                img.src = 'images/open.png';
+            }
+        }
+    </script>
+
+</body>
+
+</html>

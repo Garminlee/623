@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // element.innerText
+        // 从起始位置到终止位置的内容，但是它会去除掉html标签 以及其中的空格和换行也会被去掉。
+
+        // element.HTML
+        // 从起始位置到终止位置的全部内容，包括html标签也会返回 同时还保留了空格和换行。
+        // 给这两个属性赋值 则是修改选中元素中的内容  element.innerText = '修改内容';
+        // 但也可以不赋值直接输出 则是读取元素内的内容  console.log(element.innerText)  则是输出元素的内容
+    </script>
+</head>
+
+<body>
+    <button>显示当前系统时间</button>
+    <div>显示某个时间</div>
+    <p>一刷新页面就显示当前时间</p>
+    <script>
+        // 当点击了按钮 就会显示当前的系统时间
+        // 1. 获取元素
+        var btn = document.querySelector('button');
+        var div = document.querySelector('div');
+        // 2. 注册事件
+        btn.onclick = function() {
+            div.innerText = getTtime();
+        }
+
+        function getTtime() {
+            var time = new Date();
+            var h = time.getHours();
+            h = h > 10 ? h : '0' + h;
+            var m = time.getMinutes();
+            m = m > 10 ? m : '0' + m;
+            var s = time.getSeconds();
+            s = s > 10 ? s : '0' + s;
+            return h + ':' + m + ':' + s;
+        }
+
+        // 若元素没有添加事件函数 则在页面加载就执行 如下:
+        var p = document.querySelector('p');
+        p.innerText = getTtime();
+    </script>
+</body>
+
+</html>
