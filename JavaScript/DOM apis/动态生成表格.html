@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态生成表格</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        table {
+            width: 500px;
+            margin: 150px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        
+        th {
+            background-color: rgb(216, 212, 212);
+            height: 40px;
+        }
+        
+        td,
+        th {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>科目</th>
+                    <th>成绩</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        // 创建一个装有对象的数组 充当数据库的角色
+        var datas = [{
+            name: '小红',
+            subject: 'javascript',
+            score: 90
+        }, {
+            name: '小黄',
+            subject: 'javascript',
+            score: 73
+        }, {
+            name: '小蓝',
+            subject: 'javascript',
+            score: 85
+        }, {
+            name: '小粉',
+            subject: 'javascript',
+            score: 100
+        }]
+
+        // 1. 获取元素
+        var tbody = document.querySelector('tbody');
+        // 2. 有数据里有几个对象就创建几行，每个对象有几个属性就创建几个单元格
+        for (i = 0; i < datas.length; i++) {
+            // 2.1 每循环一次创建一行 先创建 再添加
+            var tr = document.createElement('tr');
+            tbody.appendChild(tr);
+            // 2.2 需要遍历对象 获得有几个属性 创建几个单元格
+            for (var k in datas[i]) {
+                var td = document.createElement('td');
+                // 2.3 把对象中的属性值赋给单元格
+                td.innerHTML = datas[i][k];
+                tbody.lastElementChild.appendChild(td);
+
+            }
+            // 3. 添加删除链接在最后一个单元格
+            var ltd = document.createElement('td');
+            ltd.innerHTML = "<a href='javascript:;'>删除</a>";
+            tr.appendChild(ltd);
+        }
+        // 4. 获取全部的a链接
+        var as = document.querySelectorAll('a');
+        // 4.1 给每个a链接注册事件
+        for (j = 0; j < as.length; j++) {
+            as[j].onclick = function() {
+                // 4.2 当点击a 的时候 删除其所在行
+                tbody.removeChild(this.parentNode.parentNode);
+            }
+        }
+    </script>
+</body>
+
+</html>

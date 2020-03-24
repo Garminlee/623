@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼠标小天使指针</title>
+    <style>
+        .angel {
+            /* 因为图片会到处移动 所以不占位置 要用绝对定位 */
+            position: absolute;
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="../images/angel.gif" alt="" class="angel">
+    <script>
+        var angel = document.querySelector('.angel');
+        // 因为是在页面中移动就会触发 所以给document注册事件
+        document.addEventListener('mousemove', f1);
+
+        function f1(e) {
+            angel.style.top = e.pageY - 25 + 'px';
+            angel.style.left = e.pageX - 25 + 'px';
+        }
+    </script>
+</body>
+
+</html>

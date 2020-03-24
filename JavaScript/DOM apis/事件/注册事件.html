@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册事件</title>
+
+</head>
+
+<body>
+    <button>传统注册事件</button>
+    <button>方法监听注册事件</button>
+    <script>
+        // 注册事件的两种方式： 1. 传统注册事件 2.方法监听注册事件
+        // 1. 传统注册事件  利用 on 开头的事件
+        var btn = document.querySelectorAll('button');
+        btn[0].onclick = function() {
+            alert('传统注册事件的方法具有唯一性的特点,' + '\n' + '即同一元素同一事件只能设置一个处理函数，若有多个则以最后注册的处理函数为准。');
+        }
+
+        // 2. 方法监听注册事件 eventTarget.addEventListener(type,listener,[useCapture]) 
+        btn[1].addEventListener('click', function() {
+            alert('方法监听注册事件可以给一个元素同一事件注册多个监听器，当触发的时候会依次执行');
+        })
+        btn[1].addEventListener('click', function() {
+            alert('依次执行 依次执行 ');
+        })
+        btn[1].addEventListener('click', function() {
+            alert('  不会被覆盖');
+        })
+    </script>
+</body>
+
+</html>
