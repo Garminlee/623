@@ -99,7 +99,9 @@ header {
     }
     .opinions .opinions_bd .date,
     .clients,
-    .cases .cases_hd .hd_r ul li a {
+    .cases .cases_hd .hd_r ul li a,
+    .service .title,
+    .service p {
         font-size: 12px !important;
     }
     .cases .cases_hd .hd_r ul li {
@@ -107,6 +109,27 @@ header {
     }
     .clients .title {
         font-size: 16px !important;
+    }
+    .cases .cases_bd .cases_info {
+        max-width: 488px;
+        margin: auto;
+    }
+    .clients,
+    .opinions,
+    .service_r .icon,
+    .opinions .opinions_bd .li_r {
+        padding: 0px !important;
+    }
+    .opinions .opinions_bd .bd_l ul li {
+        max-width: 433px;
+        margin: 5px auto;
+    }
+    .service_r .icon i {
+        font-size: 30px !important;
+    }
+    .service .service_l,
+    .service .service_r {
+        height: 450px !important;
     }
 }
 
@@ -218,20 +241,19 @@ footer {
 
 .bottom_fr {
     height: 114px;
-    padding: 0px 30px;
+    /* padding: 0px 30px; */
     background-color: #ffffff80;
 }
 
-.bottom_fr .btm_l ul li {
-    float: left;
+.bottom_fr .btm_l div[class^="col"] {
     line-height: 114px;
     text-align: center;
-    margin: 0 15px;
+    padding: 0;
 }
 
 .bottom_fr .copyright {
-    float: right;
+    /* float: right; */
     line-height: 114px;
     text-align: center;
-    margin-right: 10px;
+    /* margin-right: 10px; */
 }

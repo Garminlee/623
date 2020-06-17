@@ -186,11 +186,6 @@
     transition: all 1s;
 }
 
-.caseone_l,
-.caseone_r {
-    width: 48%;
-}
-
 .Caseone .title {
     font-size: 27px;
     margin: 15px 0 30px 0;
@@ -208,18 +203,18 @@
 }
 
 .Caseone .caseone_l img {
-    margin: 55px 0 0 0;
+    margin: 55px 0;
     width: 85px;
 }
 
 .Caseone .caseone_r a img {
-    width: 100%;
+    max-width: 100%;
 }
 
 .Caseone .caseone_l .checkmore {
     display: block;
     color: #000000;
-    margin: 75px 0 0 0;
+    margin: 35px 0 0 0;
 }
 
 
@@ -275,21 +270,25 @@
     margin-top: 50px;
 }
 
-.cases .cases_bd ul {
-    width: 102%;
+.cases .cases_bd div[class^="col"] {
+    margin-bottom: 15px;
 }
 
-.cases .cases_bd ul li {
+.cases .cases_bd .img a {
+    display: block;
+}
+
+.cases .cases_bd .img a img {
+    width: 100%;
+}
+
+.cases .cases_bd .cases_info {
     position: relative;
-    float: left;
-    width: 31.3%;
-    margin-right: 2%;
-    margin-bottom: 1.5%;
     border: 1px solid #f5f5f5;
     transition: all .5s;
 }
 
-.cases .cases_bd ul li .f1 {
+.cases .cases_bd .f1 {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -298,7 +297,7 @@
     background-color: #000000;
 }
 
-.cases .cases_bd ul li .f2 {
+.cases .cases_bd .f2 {
     position: absolute;
     right: 0;
     bottom: 0;
@@ -307,7 +306,7 @@
     background-color: #000000;
 }
 
-.cases .cases_bd ul li .f3 {
+.cases .cases_bd .f3 {
     position: absolute;
     right: 0;
     top: 0px;
@@ -316,7 +315,7 @@
     background-color: #000000;
 }
 
-.cases .cases_bd ul li .f4 {
+.cases .cases_bd .f4 {
     position: absolute;
     left: 0;
     top: 0;
@@ -325,33 +324,29 @@
     background-color: #000000;
 }
 
-.cases .cases_bd ul li:hover .f1,
-.cases .cases_bd ul li:hover .f3 {
+.cases .cases_bd .cases_info:hover .f1,
+.cases .cases_bd .cases_info:hover .f3 {
     width: 100%;
     overflow: hidden;
     transition: all .5s;
 }
 
-.cases .cases_bd ul li:hover .f2,
-.cases .cases_bd ul li:hover .f4 {
+.cases .cases_bd .cases_info:hover .f2,
+.cases .cases_bd .cases_info:hover .f4 {
     height: 100%;
     overflow: hidden;
     transition: all .5s;
 }
 
-.cases .cases_bd ul li a img {
-    width: 100%;
-}
-
-.cases .cases_bd ul li .info {
+.cases .cases_bd .info {
     padding: 31px;
 }
 
-.cases .cases_bd ul li .info .title {
+.cases .cases_bd .info .title {
     font-size: 18px;
 }
 
-.cases .cases_bd ul li .info p {
+.cases .cases_bd .info p {
     margin: 10px 0;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -360,8 +355,7 @@
     -webkit-box-orient: vertical;
 }
 
-
-/* .cases .cases_bd ul li .info .go_to {
+.cases .cases_bd .info .go_to {
     display: block;
     height: 35px;
     line-height: 35px;
@@ -370,7 +364,7 @@
     font-size: 18px;
     margin: 36px 0 2px 0;
     border: 1px solid #e2dcdc;
-} */
+}
 
 .go_to {
     position: relative;
@@ -400,11 +394,10 @@
     transition: all .3s;
 }
 
-
-/* .cases .cases_bd ul li .info .go_to i {
+.cases .cases_bd .info .go_to i {
     font-size: 30px;
     color: #c0bbbb;
-} */
+}
 
 .go_to i {
     font-size: 30px;
@@ -412,16 +405,16 @@
     z-index: 9999;
 }
 
-.cases .cases_bd ul li:hover .go_to i {
+.cases .cases_bd .cases_info:hover .go_to i {
     color: #fff;
 }
 
-.cases .cases_bd ul li:hover .turn {
+.cases .cases_bd .cases_info:hover .turn {
     width: 100%;
     overflow: hidden;
 }
 
-.cases li:hover .go_to::after {
+.cases .cases_info:hover .go_to::after {
     width: 100%;
     overflow: hidden;
 }
@@ -652,10 +645,11 @@
     border: 1px solid #b8b5b5;
 }
 
-.opinions .opinions_bd .bd_l ul li .li_r {
+
+/* .opinions .opinions_bd .bd_l ul li .li_r {
     width: 70%;
     padding: 5px 0 0 30px;
-}
+} */
 
 .opinions .opinions_bd .bd_l ul li .li_r .info {
     overflow: hidden;
@@ -679,7 +673,7 @@
 }
 
 .opinions .opinions_bd .bd_l ul li img {
-    width: 30%;
+    width: 100%;
 }
 
 .opinions .opinions_bd .go_to {
