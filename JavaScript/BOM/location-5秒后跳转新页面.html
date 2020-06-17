@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5秒后跳转百度</title>
+    <style>
+        div {
+            font-size: 18px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        var div = document.querySelector('div');
+        var timer = 5;
+
+        function f1() {
+            div.innerHTML = '您将在' + timer + '秒之后跳转到百度';
+            timer--;
+        }
+        f1(); // 这个函数是为了解决在页面开始的时候有一秒的空档期；
+
+        setInterval(function() {
+            if (timer == 0) {
+                location.href = 'http://www.baidu.com';
+            } else {
+                div.innerHTML = '您将在' + timer + '秒之后跳转到百度';
+                timer--;
+            }
+        }, 1000)
+    </script>
+</body>
+
+</html>

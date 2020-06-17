@@ -1,0 +1,237 @@
+body {
+    background-color: #eaeaea;
+}
+
+@media screen and (min-width:1200px) {
+    .container {
+        width: 79%;
+    }
+}
+
+
+/* 头部模块 */
+
+header {
+    position: fixed;
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    border-bottom: 1px solid #ffffff10;
+    transition: all .5s;
+    z-index: 999;
+}
+
+.menucut ul {
+    overflow: hidden;
+}
+
+.menucut ul li {
+    height: 98px;
+    line-height: 98px;
+    float: left;
+    width: 10%;
+    text-align: center;
+    transition: all 0.5s;
+}
+
+.menucut ul li:hover {
+    border-bottom: 2px solid #ffffff;
+}
+
+.menucut ul li a {
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.tel a {
+    padding-left: 25px;
+    /* margin-left: 15px; */
+    font-size: 14px;
+    color: #ffffff;
+    border-left: 1px solid #ffffff;
+    cursor: text;
+}
+
+@media screen and (max-width:1399px) {
+    header .tel a {
+        padding-left: 8px;
+    }
+}
+
+@media screen and (max-width:992px) {
+    .menucut ul li {
+        width: 11%;
+    }
+    .menucut ul li a,
+    .tel a {
+        font-size: 12px;
+    }
+    header .logo a img {
+        max-width: 100%;
+    }
+    .service .service_r {
+        padding: 0;
+        margin-top: 15px;
+    }
+    .Caseone .caseone_l img,
+    .Caseone .caseone_l .checkmore {
+        margin: 0 !important;
+    }
+    .cases .cases_bd ul li .info .title {
+        font-size: 14px !important;
+    }
+    .cases .cases_bd ul li .info p {
+        font-size: 10px !important;
+    }
+    .clients ul li {
+        width: 50% !important;
+    }
+    .opinions .opinions_bd .bd_l {
+        width: 100% !important;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .menucut,
+    .logo {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .opinions .opinions_bd .date,
+    .clients,
+    .cases .cases_hd .hd_r ul li a {
+        font-size: 12px !important;
+    }
+    .cases .cases_hd .hd_r ul li {
+        margin-left: 10px !important;
+    }
+    .clients .title {
+        font-size: 16px !important;
+    }
+}
+
+.tel a i {
+    font-size: 20px;
+    vertical-align: bottom;
+}
+
+
+/* 右侧边栏模块 */
+
+.r_slide {
+    position: fixed;
+    top: 50%;
+    right: 0;
+}
+
+.r_slide ul li {
+    position: relative;
+    top: 0;
+    left: 126px;
+    height: 54px;
+    width: 180px;
+    line-height: 54px;
+    border-bottom: 1px solid #444444;
+    background-color: rgba(0, 0, 0, .8);
+    /* overflow: hidden; */
+}
+
+.r_slide ul li:last-of-type {
+    border: none;
+}
+
+.r_slide ul li:hover {
+    background-color: #000000;
+}
+
+.r_slide ul li a {
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.r_slide ul li a i {
+    display: inline-block;
+    height: 54px;
+    line-height: 54px;
+    width: 54px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.r_slide ul li a span {
+    display: inline-block;
+    height: 54px;
+    line-height: 54px;
+    width: 106px;
+    /* li的宽度是180 i的宽度是54 为啥span不能是126 */
+    text-align: center;
+}
+
+.r_slide .code_pic {
+    position: absolute;
+    display: none;
+    top: 54px;
+    left: 0px;
+    width: 126px;
+    height: 126px;
+    border-left: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+}
+
+
+/* 页脚模块 */
+
+footer {
+    transition: all 1s;
+}
+
+.ftr {
+    padding: 30px;
+    height: 268px;
+    background-color: #ffffff;
+}
+
+.ftr .contact .tietle {
+    margin: 20px 0;
+    font-size: 24px;
+    font-weight: 400;
+    color: black;
+}
+
+.ftr .contact ul li {
+    margin: 10px 0;
+    font-size: 14px;
+    color: gray;
+}
+
+.ftr .kfcode {
+    margin: 20px 0;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #e9e5e5;
+}
+
+.ftr .kfcode img {
+    width: 120px;
+    height: 120px;
+}
+
+.bottom_fr {
+    height: 114px;
+    padding: 0px 30px;
+    background-color: #ffffff80;
+}
+
+.bottom_fr .btm_l ul li {
+    float: left;
+    line-height: 114px;
+    text-align: center;
+    margin: 0 15px;
+}
+
+.bottom_fr .copyright {
+    float: right;
+    line-height: 114px;
+    text-align: center;
+    margin-right: 10px;
+}

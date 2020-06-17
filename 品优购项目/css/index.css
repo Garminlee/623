@@ -6,9 +6,74 @@
  }
  
  .main .focus {
+     position: relative;
      float: left;
      height: 455px;
      width: 721px;
+     overflow: hidden;
+ }
+ 
+ .arrow_l,
+ .arrow_r {
+     display: none;
+     font-size: 14px;
+     color: #f9f9f9;
+     width: 20px;
+     height: 30px;
+     background-color: #00000030;
+     text-align: center;
+     line-height: 30px;
+     z-index: 2;
+ }
+ 
+ .arrow_l {
+     position: absolute;
+     left: 0px;
+     top: 50%;
+     border-radius: 0 15px 15px 0;
+ }
+ 
+ .arrow_r {
+     position: absolute;
+     right: 0px;
+     top: 50%;
+     border-radius: 15px 0 0 15px;
+ }
+ 
+ .main .focus ul {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 600%;
+ }
+ 
+ .main .focus ul li {
+     float: left;
+ }
+ 
+ .main .focus ul li img {
+     width: 721px;
+     height: 455px;
+ }
+ 
+ .main .circle li {
+     float: left;
+     width: 12px;
+     height: 12px;
+     border-radius: 12px;
+     background-color: #00000050;
+     margin: 0 2px;
+     cursor: pointer;
+ }
+ 
+ .main .circle .current {
+     background-color: #fff;
+ }
+ 
+ .main .circle {
+     position: absolute;
+     left: 46%;
+     bottom: 5px;
  }
  
  .main .newsflash {

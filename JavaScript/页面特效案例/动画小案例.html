@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画小案例</title>
+    <style>
+        .menu {
+            position: fixed;
+            right: 0;
+            top: 500px;
+            width: 40px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+            background-color: pink;
+        }
+        
+        .slider {
+            position: absolute;
+            top: 0px;
+            left: 0;
+            width: 200px;
+            height: 30px;
+            background-color: orange;
+            z-index: -1;
+        }
+    </style>
+    <script src="animate.js"></script>
+</head>
+
+<body>
+    <div class="menu">
+        <span>←</span>
+        <div class="slider">滑来滑去</div>
+    </div>
+    <script>
+        var menu = document.querySelector('.menu');
+        var slider = document.querySelector('.slider');
+        var span = document.querySelector('span');
+        menu.addEventListener('mouseenter', function() {
+            animate(slider, -160, function() {
+                span.innerHTML = '→';
+            })
+        });
+        menu.addEventListener('mouseleave', function() {
+            animate(slider, 0, function() {
+                span.innerHTML = '←';
+            })
+        })
+    </script>
+</body>
+
+</html>

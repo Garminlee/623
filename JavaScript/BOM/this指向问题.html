@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this 指向问题</title>
+</head>
+
+<body>
+    <button>this</button>
+    <script>
+        // 一般情况下，this 的最终指向都是调用它的对象
+        // 1. 在全局作用域下或者普通函数中 this 指向 window （定时器也指向window)
+        console.log(this);
+
+        function f1() {
+            console.log(this);
+
+        }
+        f1(); // window.f1();
+        // 因为定时器和普通函数都是window 的方法，相当于是window在调用 只不过省略了window。所以也是谁调用指向谁
+        setTimeout(function() {
+            console.log(this);
+
+        }, 0);
+        // window.setTimeout();
+        // 2. 在方法调用中，谁调用的这个方法this就指向谁
+        var ob = {
+            sayH: function() {
+                console.log(this);
+
+            }
+        }
+        ob.sayH();
+
+        var btn = document.querySelector('button');
+        btn.onclick = function() {
+            console.log(this);
+
+        }
+        btn.addEventListener('click', function() {
+            console.log(this);
+
+        })
+
+        // 3. 构造函数中，this 指向的是构造函数的实例
+        function Fun() {
+            console.log(this);
+
+        }
+        var fun = new Fun();
+        // new 操作符 先开辟一个新空间，this指向新创建的对象，var 操作符把这个新对象命名为了fun，所以就指向了fun这个新的实例
+    </script>
+</body>
+
+</html>

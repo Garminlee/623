@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画</title>
+    <style>
+        .move {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="move"></div>
+    <script>
+        // 核心原理 是通过定时器 setInterval() 不断移动盒子的位置。
+        // 实现步骤：
+        //  1. 获得盒子当前的位置
+        //  2. 让盒子在当前位置加上1个移动距离
+        //  3. 利用定时器不断重复这个操作
+        //  4. 加一个结束定时器的条件
+        //  5. 注意！！！！！ 这个元素一定要加定位， 有定位才能使用element.style.left来更改位置
+        var move = document.querySelector('.move');
+        var timer = setInterval(function() {
+            if (move.offsetLeft >= 800) {
+                clearInterval(timer);
+                // move.style.left = 0 + 'px';  这个是让动画循环
+            }
+            move.style.left = move.offsetLeft + 1 + 'px';
+        }, 30)
+
+        // 简单动画函数的封装 传入两个参数 一个是目标对象，一个是目标位置
+        function animate(obj, target) {
+            obj.timer = setInterval(function() {
+                if (obj.offsetLeft >= target) {
+                    clearInterval(timer);
+                    // move.style.left = 0 + 'px';  这个是让动画循环
+                }
+                obj.style.left = obj.offsetLeft + 1 + 'px';
+            }, 30)
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>固定侧边栏</title>
+    <style>
+        .w {
+            width: 1300px;
+            margin: 10px auto;
+        }
+        
+        .header {
+            height: 200px;
+            background-color: purple;
+        }
+        
+        .banner {
+            height: 400px;
+            background-color: pink;
+        }
+        
+        .main {
+            height: 800px;
+            background-color: skyblue;
+        }
+        
+        .footer {
+            height: 200px;
+            background-color: green;
+        }
+        
+        .slider-right {
+            position: absolute;
+            top: 400px;
+            left: 50%;
+            margin-left: 650px;
+            width: 100px;
+            height: 150px;
+            background-color: red;
+        }
+        
+        .slider-right span {
+            display: none;
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider-right">
+        <span class="gotop">返回顶部</span>
+    </div>
+    <div class="header w ">头部区域</div>
+    <div class="banner w ">banner区域</div>
+    <div class="main w ">主体部分</div>
+    <div class="footer w ">页脚部分</div>
+    <script>
+        // 1. 获取元素
+        var header = document.querySelector('.header');
+        var banner = document.querySelector('.banner');
+        var main = document.querySelector('.main');
+        var sliderright = document.querySelector('.slider-right');
+        var gotop = document.querySelector('.gotop');
+        // 2. 在页面滚动事件中 当页面滚动到banner位置的时候  侧边栏变为固定定位
+        var bannertop = banner.offsetTop;
+        var slidertop = sliderright.offsetTop;
+        var maintop = main.offsetTop;
+        document.addEventListener('scroll', function() {
+            if (window.pageYOffset >= bannertop) {
+                sliderright.style.position = 'fixed';
+                sliderright.style.top = slidertop - bannertop + 'px';
+            } else {
+                // 3. 当页面回到banner 以上的时候 侧边栏变回绝对定位
+                sliderright.style.position = 'absolute';
+                sliderright.style.top = '400px';
+            }
+            if (window.pageYOffset >= maintop) {
+                gotop.style.display = 'block';
+            } else {
+                gotop.style.display = 'none';
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定时器setTimeout</title>
+</head>
+
+<body>
+    <div><img src="../DOM apis/images/zxy.jpg" alt=""></div>
+    <script>
+        // setTimeout 里面的调用函数有三种调用方法 第一种是把函数直接写进去
+        setTimeout(function() {
+            console.log('三秒过去了~');
+        }, 3000);
+        // 第二种是把函数写在外面，然后直接调用函数名，后不跟括号
+        setTimeout(fn1, 5000);
+
+        function fn1() {
+            console.log('嘀嘀嘀');
+
+        }
+        // 第三种不太推荐使用，是用'' 来调用函数名后跟括号，
+        setTimeout('fn1()', 8000);
+
+        // 由于页面中会有很多个定时器，所以一般要给每个定时器加标识符
+
+        //  案例   5S钟之后自动关闭广告
+        var img = document.querySelector('img');
+
+        function fn2() {
+            img.style.display = 'none';
+        }
+        var timeClose = setTimeout(fn2, 5000);
+        // 清除Timeout（）定时器的方法是clearTimeout（定时器名）
+        // setInterval(回调函数，[间隔的毫秒数])； 用法跟Timeout定时器一样，与之对应的清除方法是clearInterval(定时器名)； 
+        // 两个定时器的区别是setTimeout() 在规定时间到了后只执行一次。而setInterval()定时器是间隔时间到了就去执行，重复执行。
+    </script>
+</body>
+
+</html>

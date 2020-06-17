@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>调整窗口大小事件</title>
+    <style>
+        div {
+            width: 200px;
+            height: 300px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        // window.onresize = function() {
+        //     console.log('窗口大小变啦~');
+
+        // }
+        var div = document.querySelector('div');
+        window.addEventListener('resize', function() {
+            console.log('窗口大小变啦');
+
+            // window.innerWidth  window.innerHeight 可以获得屏幕的宽度和高度
+            // 利用这两个方法可以使窗口大小变化的时候隐藏或显示某些元素
+            if (window.innerWidth <= 800) {
+                div.style.display = 'none';
+            } else {
+                div.style.display = 'block';
+            }
+        })
+    </script>
+</body>
+
+</html>
