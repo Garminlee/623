@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let 关键字</title>
+</head>
+
+<body>
+    <script>
+        // let 声明的变量具有块级作用域  以此可以达到防止循环变量变成全局变量的目的
+        // 在大括号中 使用let 声明的变量才具有块级作用域，使用var声明的变量不具备此特点的
+        // let声明的变量不存在变量提升
+        // let声明的变量具有暂时性死区特性
+        let a = 18;
+        console.log(a); // 输出18
+
+        if (true) {
+            let b = 28;
+            console.log(b); // 输出28
+
+        }
+        // console.log(b); // b is not defined  因为let声明的变量b只在if这个块级作用域内可以使用
+
+        console.log('-----------使用let 声明的变量才具有块级作用域----------------');
+        // 在大括号中 使用let 声明的变量才具有块级作用域，使用var声明的变量不具备
+        if (true) {
+            let c = 50;
+            var d = 100;
+        }
+        console.log(d); // 输出100
+        // console.log(c); // c is not defined
+
+        console.log('-------------防止循环变量变成全局变量------------------');
+        //防止循环变量变成全局变量
+        for (var i = 0; i <= 10; i++) {
+
+        }
+        console.log(i); //输出11
+        for (let m = 0; m <= 10; m++) {
+
+        }
+        // console.log(m); // m is not defined
+
+        console.log('-----------let声明的变量不存在变量提升---------');
+
+        //let声明的变量不存在变量提升 
+        console.log(e); // 输出undefined，因为var关键字有变量提升 会在这条语句执行前先声明e，但没赋值
+        var e = 1000;
+        // console.log(f); //  Cannot access 'f' before initialization  因为let不存在变量提升，所以在执行这行代码的时候还没有定义 
+        let f = 1500;
+
+        console.log('-----------let声明的变量具有暂时性死区特性---------');
+
+        // let声明的变量具有暂时性死区特性
+        var num = 33;
+        if (true) {
+            console.log(
+                num
+            ); // Cannot access 'num' before initialization  虽然在外部有全局变量num，但是因为在块级作用域内 使用了let声明了一个同名的变量，此时这个同名变量就与这个块级作用域绑定了， 块级之外的即使有同名的变量也不会去访问到。
+            let num;
+        }
+    </script>
+</body>
+
+</html>

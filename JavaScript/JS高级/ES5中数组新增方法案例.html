@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES5 新增数组方法案例</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        .search {
+            width: 500px;
+            font-size: 14px;
+            margin: 10px auto;
+        }
+        
+        .search input {
+            width: 50px;
+        }
+        
+        table {
+            text-align: center;
+            margin: 0px auto;
+            border-collapse: collapse;
+        }
+        
+        th,
+        td {
+            border: 1px solid #000000;
+            padding: 0px 30px;
+        }
+        
+        .proname {
+            padding: 0px 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search">
+        按照价格查询: <input type="text" class="min_price"> - <input type="text" class="max_price"> <button class="btn1">搜索</button> 按照商品名称查询：
+        <input type="text" class="searchname"> <button class="btn2">查询</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th class="proname">产品名称</th>
+                <th>价格</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        var data = [{
+            id: 1,
+            pname: '小米',
+            price: 3599
+        }, {
+            id: 2,
+            pname: '华为',
+            price: 6999
+        }, {
+            id: 3,
+            pname: 'oppe',
+            price: 3999
+        }, {
+            id: 4,
+            pname: '苹果',
+            price: 5999
+        }];
+        // 动态导入data数组里的信息到表格中
+        //  获取元素
+        var tbody = document.querySelector('tbody');
+        // 利用forEach方法根据data数组动态渲染行
+        data.forEach(function(value) {
+            // 创建行tr
+            var tr = document.createElement('tr');
+            // 添加行tr中的内容
+            tr.innerHTML = '<td>' + value.id + '</td><td>' + value.pname + '</td><td>' + value.price + '</td>';
+            // 添加行
+            tbody.appendChild(tr);
+        });
+
+        // 查询功能 可以利用filter（）方法做
+        // 首先还是获取元素
+        var min_price = document.querySelector('.min_price');
+        var max_price = document.querySelector('.max_price');
+        var btn1 = document.querySelector('.btn1');
+        btn1.addEventListener('click', function() {
+            var newData = data.filter(function(value) {
+                return value.price >= min_price.value && value.price <= max_price.value;
+            });
+            // 此时已经得到了符合条件的newData数组了 接下来把这个新数组渲染到表格中去
+            // 注意要先删去原来的 再渲染新的 来达到覆盖的效果
+            if (min_price.value) {
+                tbody.innerHTML = '';
+            }
+            newData.forEach(function(value) {
+                // 创建行tr
+                var tr = document.createElement('tr');
+                // 添加行tr中的内容
+                tr.innerHTML = '<td>' + value.id + '</td><td>' + value.pname + '</td><td>' + value
+                    .price + '</td>';
+                // 添加行
+                tbody.appendChild(tr);
+            });
+        });
+    </script>
+</body>
+
+</html>

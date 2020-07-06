@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包小案例</title>
+</head>
+
+<body>
+    <!-- 点击li输出当前li的索引 -->
+    <ul class="nav">
+        <li>第一个li</li>
+        <li>第二个li</li>
+        <li>第三个li</li>
+        <li>第四个li</li>
+        <li>第五个li</li>
+    </ul>
+    <script>
+        // 1. 动态添加属性的方式
+        var lis = document.querySelector('.nav').querySelectorAll('li');
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].index = i;
+            lis[i].onclick = function() {
+                console.log(this.index);
+            }
+        }
+        // 2. 利用立即执行函数  闭包 的方法
+        // 立即执行函数也成为小闭包函数，因为立即执行函数里面 创建的任何一个函数都可以使用他的参数i
+        for (var i = 0; i < lis.length; i++) {
+            (function(i) {
+                // console.log(i);
+                lis[i].onclick = function() {
+                    console.log(i);
+
+                }
+
+            })(i);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扩展运算符</title>
+</head>
+
+<body>
+    <script>
+        // 扩展运算符 可以将数组或者对象中转为用逗号分隔的参数序列。
+        let arr = [1, 2, 3, 4];
+        // ...arr  此时运用扩展运算符将arr数组拆分成了以逗号隔开的参数序列 1，2，3，4
+        console.log(...arr); //输出结果为1 2 3 4  注意这个输出结果没有用逗号隔开，是因为console.log操作本来就可以接收多个参数，每个参数就是用逗号隔开的，所以这时候扩展运算符拆分得到的逗号隔开的参数序列中的逗号 被当成了log里面的多参数分隔符，所以输出结果里就没有了逗号。
+
+        // 方法一
+        // 扩展运算符可以应用在合并数组
+        let arr1 = [6, 7, 8, 9];
+        let arr2 = [...arr, ...arr1];
+        console.log(arr2); // [1,2,3,4,6,7,8,9]
+        // 方法二
+        arr.push(...arr1);
+        console.log(arr); // [1,2,3,4,6,7,8,9]
+        /*---- 扩展运算符还可以将类数组（伪数组）或者可遍历对象转换成真正的数组---*/
+        let lis = document.querySelectorAll('li'); //此时得到的是所有li的集合 伪数组
+        lis = [...lis];
+        // Array.from() 这个数组构造函数的from方法也可以实现这个把伪数组转换成真正的数组。
+        //其中from（）方法可以接收两个参数，第一个参数需要转换的数组，第二个参数是一个函数，对数组中每一个元素进行的操作。 
+        // lis = Array.from(lis, item => item * 2);  例如这个代码就表示把lis这个伪数组转换成真正的数组，同时把里面的每个元素值乘以2
+    </script>
+</body>
+
+</html>

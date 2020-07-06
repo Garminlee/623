@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegExp正则表达式</title>
+</head>
+
+<body>
+    <div>正则表达式是 用于匹配字符串中字符组合的模式，也是对象类型。 通常用于 检索、 替换那些符合某个模式（规则）的文本。
+    </div>
+    <script>
+        // 创建正则表达式的方法 
+        // 1. 利用RegExp 构造函数的方法
+        var rg1 = new RegExp(/1234/);
+        // 2. 字面量创建
+        var rg2 = /1234/;
+
+        // test() 正则对象方法用来测试正则表达式 返回的是布尔值
+        rg2.test('jsj'); // 检测字符串jsj是否符合1234的模式
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegExp 字符类</title>
+</head>
+
+<body>
+    <script>
+        // 字符类 [] 表示有一系列字符可供选择，只要匹配其中一个就可以
+        var rg = /^[ab]cd/; // 表示只要符合以acd 或者 bcd开头的就返回true
+        console.log(rg.test('acde')); // 返回true
+        console.log(rg.test('bcde')); // 返回true
+        console.log(rg.test('abcde')); // 返回false
+        console.log(rg.test('dcd')); // 返回false
+        // [-] 方括号内部  范围符 -
+    </script>
+</body>
+
+</html>

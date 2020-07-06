@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>剩余参数</title>
+</head>
+
+<body>
+    <script>
+        /*---利用剩余参数语法实现任意个数实参的加法操作。*/
+        const sum = (...args) => {
+            let total = 0;
+            args.forEach(item => total += item);
+            return total;
+        };
+        sum(1, 2);
+        sum(5, 1, 53, 6, 8);
+        /*------剩余参数和解构配合使用----------- */
+        let people = ['one', 'two', 'three', 'point'];
+        let [p1, ...p2] = people;
+        console.log(p1); // 'one'
+        console.log(p2); // ['two','three','point']
+    </script>
+</body>
+
+</html>

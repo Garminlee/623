@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浅拷贝和深拷贝</title>
+</head>
+
+<body>
+    <script>
+        // 浅拷贝只拷贝一层，更深层次对象级别的只拷贝引用（地址指针）
+        // 深拷贝拷贝多层，每一级别的数据都会拷贝。
+
+        // 在JS中 原来可以通过for in 来浅拷贝对象的属性  此时若修改了对象级别的内容，那么浅拷贝的也会受影响。
+        var obj1 = {
+            name: 'onepoint',
+            age: 18,
+            Sex: {
+                sex: 'man'
+            },
+            color: ['pink', 'green', 'blue']
+        };
+        var obj2 = {};
+        // for (var k in obj1) {
+        //     obj2[k] = obj1[k];
+        // }
+        // console.log(obj2);
+        //ES6 中 可以使用 Object.assign(target, ....source) 来实现浅拷贝  此时若修改了对象级别的内容，那么浅拷贝的也会受影响。
+        Object.assign(obj2, obj1);
+        console.log(obj2);
+
+        // JS 中可以利用递归函数来实现深拷贝
+        function Deepcopy(newobj, oldobj) {
+            for (var k in oldobj) {
+                // 做条件判断，如果是简单数据类型就直接用上述浅拷贝的方式，若是复杂数据类型就用递归的方式在复杂数据类型属性里调用这个函数
+                if (oldobj[k] instanceof Array) {
+                    newobj[k] = [];
+                    Deepcopy(newobj[k], oldobj[k]);
+                } else if (oldobj[k] instanceof Object) {
+                    newobj[k] = {};
+                    Deepcopy(newobj[k], oldobj[k]);
+                } else {
+                    newobj[k] = oldobj[k];
+                }
+            }
+        }
+        Deepcopy(obj2, obj1);
+        console.log(obj2);
+    </script>
+</body>
+
+</html>

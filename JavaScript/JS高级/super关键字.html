@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>super关键字</title>
+    <style>
+        div {
+            width: 79%;
+            margin: 200px auto;
+            background-color: #eaeaea;
+            font-size: 16px;
+            /* text-align: center; */
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>1.super 关键字用于子类访问和调用父类上的函数。 <br /> 可以调用父类的constructor 函数也可以调用父类的普通函数。 <br /> （如果不用super关键字的话，如果子类跟父类的参数相同，在用子类直接调用父类的方法时，因为子类和父类的this指向不同 会导致相关的错误。） <br />2. 注意： 子类在构造函数中使用 super 必须放到this前面（也就是要先调用父类的构造方法，再使用子类的构造方法)
+        </p>
+    </div>
+    <script>
+        class Father {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+            }
+            add() {
+                console.log(this.x + this.y);
+
+            }
+        }
+
+        class Son extends Father {
+            constructor(x, y) {
+                super(x, y);
+                this.x = x;
+                this.y = y;
+            }
+            subtract() {
+                console.log(this.x - this.y);
+
+            }
+        }
+        var son = new Son(8, 4);
+        son.add();
+        son.subtract();
+    </script>
+</body>
+
+</html>

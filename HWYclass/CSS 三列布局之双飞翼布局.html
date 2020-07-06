@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>双飞翼布局</title>
+    <style>
+        .container {
+            margin: 0 auto;
+            width: 800px;
+            border: 1px solid #000000;
+        }
+        
+        .center {
+            float: left;
+            width: 100%;
+            background-color: yellow;
+        }
+        
+        .left {
+            float: left;
+            width: 200px;
+            background-color: pink;
+            margin-left: -100%;
+        }
+        
+        .right {
+            float: left;
+            width: 200px;
+            background-color: skyblue;
+            margin-left: -200px;
+        }
+        
+        .content {
+            margin: 0 200px;
+        }
+        
+        .clearfix:after {
+            content: "";
+            clear: both;
+            display: block;
+            height: 0px;
+            font-size: 0px;
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 1. 先使用float将三列子元素浮动
+        2. 使用margin负值，使三列子元素处于同一水平线
+        3. 在中间盒子中添加一个div 设置margin左右值为两侧盒子的宽度大小
+        4. 给父元素清除浮动     -->
+    <div class="container clearfix">
+        <div class="center">
+            <div class="content">中间自适应</div>
+        </div>
+        <div class="left">左边</div>
+        <div class="right">右边</div>
+    </div>
+</body>
+
+</html>

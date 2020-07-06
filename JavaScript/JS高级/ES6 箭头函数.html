@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>箭头函数</title>
+</head>
+
+<body>
+    <script>
+        // () => {};    小括号中放参数  大括号中放函数体
+        const fn = () => {
+            consolo.log(1234);
+        };
+        fn(); // 输出1234
+
+        /*------如果函数体中只有一句代码，并且代码的执行结果就是返回值，则可以省略大括号。------*/
+        const fn1 = (num1, num2) => num1 + num2;
+        //等同于下面这个函数
+        function fn2(num1, num2) {
+            return num1 + num2;
+        }
+
+        /*-----如果形参只有一个，则可以省略小括号------*/
+        const fn3 = num => num;
+        // 等同于下面这个函数
+        function fn4(num) {
+            return num;
+        }
+
+        /*-----箭头函数中 this 问题，由于箭头函数不绑定this 关键字，所以箭头函数中的this 指向的是函数定义位置的上下文this，而不是指向函数的调用者。-------*/
+        function fnn() {
+            console.log(this); //  本来是指向调用者 但如果本函数使用了call方法就指向call方法绑定的对象
+            return () => {
+                console.log(
+                    this
+                ); // 箭头函数不绑定this 所以这个this不是指向调用者 ，而是指向箭头函数定义位置的上下文，此时这个箭头函数实在fnn函数内部定义的，所以箭头函数中的this指向fnn这个函数内部的this，而又因为fnn的this 由call方法改为指向对象obj  所以这个箭头函数的this 也指向obj
+
+            }
+        }
+        const obj = {
+            name: 'onepoint'
+        };
+        const arrow = fnn.call(obj); // 返回的是一个匿名箭头函数
+        arrow(); // 输出的是obj对象
+    </script>
+</body>
+
+</html>

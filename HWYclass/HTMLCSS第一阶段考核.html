@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Classroom平台首页</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: block;
+            height: 0px;
+            font-size: 0px;
+            visibility: hidden;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #000000;
+        }
+        
+        .main {
+            width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .fl_l {
+            float: left;
+        }
+        
+        .fl_r {
+            float: right;
+        }
+        /* nav 导航栏模块开始  */
+        
+        .nav {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            padding: 0 40px;
+            height: 60px;
+            line-height: 60px;
+            background-color: #fff;
+            border-bottom: 1px solid #eaeaea;
+            z-index: 999;
+        }
+        
+        .nav .logo {
+            width: 120px;
+        }
+        
+        .nav .logo img {
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .nav_lis ul li {
+            float: left;
+            line-height: 60px;
+            padding: 0 25px;
+            font-size: 1vw;
+        }
+        
+        .nav_lis .current {
+            margin-left: 10px;
+        }
+        
+        .nav_lis li a:hover {
+            color: #5e7ce0;
+            transition: all .3s;
+        }
+        
+        .nav_lis .current a {
+            color: #5e7ce0;
+        }
+        
+        .nav_right .btn {
+            margin-right: 15px;
+        }
+        
+        .btn a {
+            font-size: 14px;
+            padding: 5px 20px;
+            background-color: #fafafa;
+            border: 1px solid #e0e0e0;
+            border-radius: 20px;
+        }
+        
+        .nav_right .btn a:hover {
+            border-color: #5e7ce0;
+        }
+        
+        .nav_right .help {
+            margin: 0 30px;
+        }
+        
+        .nav_right .user {
+            font-size: 14px;
+        }
+        
+        .user .icon {
+            width: 30px;
+            height: 30px;
+            padding: 7px;
+            font-size: 12px;
+            color: #ffffff;
+            background-color: #73b0ff;
+            border-radius: 15px;
+        }
+        /* nav 导航栏模块结束  */
+        /* header 模块开始 */
+        
+        .header {
+            margin-top: 60px;
+        }
+        /* header 模块结束 */
+        /* content 模块开始 */
+        
+        .content .intro-box {
+            position: relative;
+            top: -25px;
+            left: 0px;
+            padding: 30px;
+            background-color: #fff;
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, .2);
+        }
+        
+        .content .intro-box .intro {
+            width: 86%;
+            line-height: 32px;
+        }
+        
+        .content .intro-box .btn {
+            width: 10%;
+            margin-left: 4%;
+            line-height: 64px;
+        }
+        
+        .content .btn a {
+            color: #ffffff;
+            background-color: #5e7ce0;
+        }
+        /* .content .class-box {} */
+        
+        .title {
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .title .l_title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 10px;
+        }
+        
+        .title .s_title {
+            font-size: 16px;
+            color: #575d6c;
+        }
+        
+        .info ul li a {
+            display: block;
+        }
+        
+        .info ul {
+            width: 105%;
+        }
+        
+        .info ul li {
+            float: left;
+            width: 30%;
+            margin: 0 2.5% 2.5% 0;
+            border-radius: 13px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, .1);
+            overflow: hidden;
+            transition: all .1s;
+        }
+        
+        .info ul li:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 10px rgba(0, 0, 0, .1);
+        }
+        
+        .content .info .img {
+            height: 200px;
+            background-image: url(https://res.devcloud.huaweicloud.com/obsdevui/diploma/8.1.12.003/cloud-class.5974862e24f459dd518a.png);
+        }
+        
+        .img1 {
+            background-position-y: 0;
+        }
+        
+        .img2 {
+            background-position-y: -200px;
+        }
+        
+        .img3 {
+            background-position-y: -400px;
+        }
+        
+        .img4 {
+            background-position-y: -600px;
+        }
+        
+        .img5 {
+            background-position-y: -800px;
+        }
+        
+        .img6 {
+            background-position-y: -1000px;
+        }
+        
+        .img7 {
+            background-position-y: -1200px;
+        }
+        
+        .img8 {
+            background-position-y: -1400px;
+        }
+        
+        .img9 {
+            background-position-y: -1600px;
+        }
+        
+        .img10 {
+            background-position-y: -1800px;
+        }
+        
+        .img11 {
+            background-position-y: -2000px;
+        }
+        
+        .img12 {
+            background-position-y: -2200px;
+        }
+        
+        .course {
+            padding: 10px 15px;
+        }
+        
+        .csname {
+            font-size: 16px;
+            color: #000000;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .course_ct {
+            margin: 5px 0 18px 0;
+        }
+        
+        .time {
+            font-size: 12px;
+            color: #959eb2;
+            line-height: 20px;
+        }
+        
+        .time span:last-of-type {
+            float: right;
+            padding: 1px 8px;
+            border: 1px solid #eaeaea;
+            border-radius: 10px;
+        }
+        
+        .course_dsc {
+            text-overflow: -o-ellipsis-lastline;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            font-size: 14px;
+            line-height: 25px;
+            color: #575d6c;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .free {
+            padding: 14px 0;
+        }
+        
+        .free span {
+            float: right;
+            padding: 2px 4px;
+            font-size: 14px;
+            line-height: 20px;
+            color: #e41f2b;
+            background-color: rgba(228, 31, 41, 0.1);
+        }
+        
+        .viewmore {
+            width: 100%;
+            text-align: center;
+            padding: 30px 0 50px 0;
+        }
+        
+        .viewmore .btn a {
+            color: #575d6c;
+            background-color: #fafafa;
+            font-size: 16px;
+            padding: 8px 20px;
+        }
+        
+        .viewmore .btn a:hover {
+            border-color: #5e7ce0;
+        }
+        
+        .content .market-box {
+            background-color: #fafafa;
+        }
+        
+        .content .activity-box .actvs:last-of-type {
+            margin-bottom: 100px;
+        }
+        
+        .content .activity-box .actvs {
+            padding: 30px 0;
+            border-bottom: 1px solid #dbdbdb;
+        }
+        
+        .info_img {
+            width: 160px;
+            height: 96px;
+            background-image: url(https://res.devcloud.huaweicloud.com/obsdevui/diploma/8.1.12.003/notice.b7839ff8db59462824d7.png);
+        }
+        
+        .info_in {
+            margin-left: 30px;
+        }
+        
+        .info_name {
+            font-size: 20px;
+            color: #2d3444;
+            padding: 0 0 30px 0;
+        }
+        
+        .info_in span {
+            color: #959eb2;
+            font-size: 14px;
+        }
+        
+        .activity-box a {
+            display: block;
+        }
+        
+        .actvs .img1 {
+            background-position-y: 0;
+        }
+        
+        .actvs .img2 {
+            background-position-y: -96px;
+        }
+        
+        .actvs .img3 {
+            background-position-y: -192px;
+        }
+        
+        .actvs .img4 {
+            background-position-y: -288px;
+        }
+        
+        .actvs .img5 {
+            background-position-y: -384px;
+        }
+        
+        .actvs .img6 {
+            background-position-y: -480px;
+        }
+        /* content 模块结束 */
+        /* footer 模块开始 */
+        
+        .footer {
+            background-color: #ececec;
+            height: 100px;
+            color: #6a6b6d;
+            font-size: 14px;
+            padding: 35px 0 0 0;
+        }
+        
+        .footer a {
+            color: #6a6b6d;
+        }
+        /* footer 模块结束 */
+    </style>
+</head>
+
+<body>
+    <div class="nav clearfix">
+        <!--页面导航区域-->
+        <div class="logo fl_l">
+            <div class="img"><img src="https://res.devcloud.huaweicloud.com/obsdevui/diploma/8.1.12.003/logo.ee14f183979fd61abac2.svg" alt=""></div>
+        </div>
+        <div class="nav_lis clearfix fl_l">
+            <ul>
+                <li class="current"><a href="javascript:;">首页</a></li>
+                <li><a href="javascript:;">教学市场</a></li>
+                <li><a href="javascript:;">云课程</a></li>
+                <li><a href="javascript:;">培训认证</a></li>
+                <li><a href="javascript:;">云端实验室</a></li>
+                <li><a href="javascript:;">新工科实验班</a></li>
+                <li><a href="javascript:;">学习交流</a></li>
+            </ul>
+        </div>
+        <div class="nav_right fl_r">
+            <div class="btn fl_l"><a href="javascript:;">教学平台</a></div>
+            <div class="help fl_l"><a href="javascript:;">?</a></div>
+            <div class="user fl_l">
+                <a href="javascript:;"> <span class="icon">GR</span>
+                    <span class="username">Grocoding</span></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="header">
+        <!--页面头部轮播图区域-->
+        <!--提示：不需要实现轮播图效果-->
+        <div><img src="https://res.devcloud.huaweicloud.com/obsdevui/diploma/8.1.12.003/banner-4.883a698e6a7fc4d886c6.jpg" alt=""></div>
+    </div>
+
+    <div class="content">
+        <div class="main">
+            <!--页面内容区域-->
+            <div class="intro-box clearfix">
+                <!--classroom介绍区域-->
+                <div class="intro fl_l">
+                    Classroom是基于华为云的云上软件教学服务，支持高校师生实现备课、上课、作业、考试、实验、实训等全教学流程的线上教学，提供多类习题自动判题、企业级DevOps实训、免费在线习题库等众多高级特性辅助进行数字化教学转型。
+                </div>
+                <div class="btn fl_r"><a href="javascript:;">开始上课</a></div>
+            </div>
+            <div class="class-box">
+                <!--云课堂区域-->
+                <div class="title">
+                    <div class="l_title">云课堂</div>
+                    <div class="s_title">免费精品公开课，覆盖丰富知识点、课件与在线习题</div>
+                </div>
+                <div class="info">
+                    <ul>
+                        <li>
+                            <a href="javascript:;">
+                                <div class="img img1"></div>
+                                <div class="course">
+                                    <div class="course_ct">
+                                        <div class="csname">区块链精品实践课</div>
+                                        <div class="time"><span></span>
+                                            <span>Classroom</span>
+                                            <span></span>
+                                            <span>华为云</span>
+                                            <span>6小时</span></div>
+                                    </div>
+                                    <div class="course_dsc">
+                                        本课程由浅入深的介绍区块链技术缘起、原理机制、演进和发展现状，分享区块链典型应用场景及特点。了解华为云区块链的方案及特点，参与动手实验。从入门到实践，循序渐进一站式学习。
+                                    </div>
+                                    <div class="free clearfix"><span>限时免费</span></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+
+                            <a href="javascript:;">
+                                <div class="img img2"></div>
+                                <div class="course">
+                                    <div class="course_ct">
+                                        <div class="csname">基于新工科的软件工程企业级专家实践课</div>
+                                        <div class="time"><span></span>
+                                            <span>Classroom</span>
+                                            <span></span>
+                                            <span>华为云</span>
+                                            <span>6小时</span></div>
+                                    </div>
+                                    <div class="course_dsc">
+                                        本课程由浅入深的介绍区块链技术缘起、原理机制、演进和发展现状，分享区块链典型应用场景及特点。了解华为云区块链的方案及特点，参与动手实验。从入门到实践，循序渐进一站式学习。
+                                    </div>
+                                    <div class="free clearfix"><span>限时免费</span></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+
+                            <a href="javascript:;">
+                                <div class="img img3"></div>
+                                <div class="course">
+                                    <div class="course_ct">
+                                        <div class="csname">HE2E DevOps实践</div>
+                                        <div class="time"><span></span>
+                                            <span>Classroom</span>
+                                            <span></span>
+                                            <span>华为云</span>
+                                            <span>6小时</span></div>
+                                    </div>
+                                    <div class="course_dsc">
+                                        本课程由浅入深的介绍区块链技术缘起、原理机制、演进和发展现状，分享区块链典型应用场景及特点。了解华为云区块链的方案及特点，参与动手实验。从入门到实践，循序渐进一站式学习。
+                                    </div>
+                                    <div class="free clearfix"><span>限时免费</span></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+
+                            <a href="javascript:;">
+                                <div class="img img4"></div>
+                                <div class="course">
+                                    <div class="course_ct">
+                                        <div class="csname">C语言程序设计</div>
+                                        <div class="time"><span></span>
+                                            <span>Classroom</span>
+                                            <span></span>
+                                            <span>华为云</span>
+                                            <span>6小时</span></div>
+                                    </div>
+                                    <div class="course_dsc">
+                                        本课程由浅入深的介绍区块链技术缘起、原理机制、演进和发展现状，分享区块链典型应用场景及特点。了解华为云区块链的方案及特点，参与动手实验。从入门到实践，循序渐进一站式学习。
+                                    </div>
+                                    <div class="free clearfix"><span>限时免费</span></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+
+                            <a href="javascript:;">
+                                <div class="img img5"></div>
+                                <div class="course">
+                                    <div class="course_ct">
+                                        <div class="csname">Web实践课</div>
+                                        <div class="time"><span></span>
+                                            <span>Classroom</span>
+                                            <span></span>
+                                            <span>华为云</span>
+                                            <span>6小时</span></div>
+                                    </div>
+                                    <div class="course_dsc">
+                                        本课程由浅入深的介绍区块链技术缘起、原理机制、演进和发展现状，分享区块链典型应用场景及特点。了解华为云区块链的方案及特点，参与动手实验。从入门到实践，循序渐进一站式学习。
+                                    </div>
+                                    <div class="free clearfix"><span>限时免费</span></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+
+                            <a href="javascript:;">
+                                <div class="img img6"></div>
+                                <div class="course">
+                                    <div class="course_ct">
+                                        <div class="csname">人工只能：算法与实践</div>
+                                        <div class="time"><span></span>
+                                            <span>Classroom</span>
+                                            <span></span>
+                                            <span>华为云</span>
+                                            <span>6小时</span></div>
+                                    </div>
+                                    <div class="course_dsc">
+                                        本课程由浅入深的介绍区块链技术缘起、原理机制、演进和发展现状，分享区块链典型应用场景及特点。了解华为云区块链的方案及特点，参与动手实验。从入门到实践，循序渐进一站式学习。
+                                    </div>
+                                    <div class="free clearfix"><span>限时免费</span></div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="viewmore">
+                    <div class="btn">
+                        <a href="javascript:;">查看更多 ></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="market-box">
+            <!--教学市场区域-->
+            <div class="main">
+                <div class="title">
+                    <div class="l_title">教学市场</div>
+                    <div class="s_title">丰富教学资源辅助高效教学，免费习题库一键获取</div>
+                </div>
+                <div class="info">
+                    <ul>
+                        <li>
+                            <a href="javascript:;">
+                                <div class="img img7"></div>
+                                <div class="course">
+                                    <div class="course_ct">
+                                        <div class="csname">JAVA-习题库</div>
+                                        <div class="time"><span></span>
+                                            <span>Classroom</span>
+                                            <span></span>
+                                            <span>华为云</span>
+                                            <span>6小时</span></div>
+                                    </div>
+                                    <div class="course_dsc">
+                                        本课程由浅入深的介绍区块链技术缘起、原理机制、演进和发展现状，分享区块链典型应用场景及特点。了解华为云区块链的方案及特点，参与动手实验。从入门到实践，循序渐进一站式学习。
+                                    </div>
+                                    <div class="free clearfix"><span>限时免费</span></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+
+                            <a href="javascript:;">
+                                <div class="img img8"></div>
+                                <div class="course">
+                                    <div class="course_ct">
+                                        <div class="csname">C-习题库</div>
+                                        <div class="time"><span></span>
+                                            <span>Classroom</span>
+                                            <span></span>
+                                            <span>华为云</span>
+                                            <span>6小时</span></div>
+                                    </div>
+                                    <div class="course_dsc">
+                                        本课程由浅入深的介绍区块链技术缘起、原理机制、演进和发展现状，分享区块链典型应用场景及特点。了解华为云区块链的方案及特点，参与动手实验。从入门到实践，循序渐进一站式学习。
+                                    </div>
+                                    <div class="free clearfix"><span>限时免费</span></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+
+                            <a href="javascript:;">
+                                <div class="img img9"></div>
+                                <div class="course">
+                                    <div class="course_ct">
+                                        <div class="csname">web-习题库</div>
+                                        <div class="time"><span></span>
+                                            <span>Classroom</span>
+                                            <span></span>
+                                            <span>华为云</span>
+                                            <span>6小时</span></div>
+                                    </div>
+                                    <div class="course_dsc">
+                                        本课程由浅入深的介绍区块链技术缘起、原理机制、演进和发展现状，分享区块链典型应用场景及特点。了解华为云区块链的方案及特点，参与动手实验。从入门到实践，循序渐进一站式学习。
+                                    </div>
+                                    <div class="free clearfix"><span>限时免费</span></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+
+                            <a href="javascript:;">
+                                <div class="img img10"></div>
+                                <div class="course">
+                                    <div class="course_ct">
+                                        <div class="csname">系统分析与设计</div>
+                                        <div class="time"><span></span>
+                                            <span>Classroom</span>
+                                            <span></span>
+                                            <span>华为云</span>
+                                            <span>6小时</span></div>
+                                    </div>
+                                    <div class="course_dsc">
+                                        本课程由浅入深的介绍区块链技术缘起、原理机制、演进和发展现状，分享区块链典型应用场景及特点。了解华为云区块链的方案及特点，参与动手实验。从入门到实践，循序渐进一站式学习。
+                                    </div>
+                                    <div class="free clearfix"><span>限时免费</span></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+
+                            <a href="javascript:;">
+                                <div class="img img11"></div>
+                                <div class="course">
+                                    <div class="course_ct">
+                                        <div class="csname">数据结构（C语言）实践教学精品</div>
+                                        <div class="time"><span></span>
+                                            <span>Classroom</span>
+                                            <span></span>
+                                            <span>华为云</span>
+                                            <span>6小时</span></div>
+                                    </div>
+                                    <div class="course_dsc">
+                                        本课程由浅入深的介绍区块链技术缘起、原理机制、演进和发展现状，分享区块链典型应用场景及特点。了解华为云区块链的方案及特点，参与动手实验。从入门到实践，循序渐进一站式学习。
+                                    </div>
+                                    <div class="free clearfix"><span>限时免费</span></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+
+                            <a href="javascript:;">
+                                <div class="img img12"></div>
+                                <div class="course">
+                                    <div class="course_ct">
+                                        <div class="csname">Python程序设计精品</div>
+                                        <div class="time"><span></span>
+                                            <span>Classroom</span>
+                                            <span></span>
+                                            <span>华为云</span>
+                                            <span>6小时</span></div>
+                                    </div>
+                                    <div class="course_dsc">
+                                        本课程由浅入深的介绍区块链技术缘起、原理机制、演进和发展现状，分享区块链典型应用场景及特点。了解华为云区块链的方案及特点，参与动手实验。从入门到实践，循序渐进一站式学习。
+                                    </div>
+                                    <div class="free clearfix"><span>限时免费</span></div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="viewmore">
+                    <div class="btn">
+                        <a href="javascript:;">查看更多 ></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="activity-box">
+            <!--活动公告区域-->
+            <div class="main">
+                <div class="title">
+                    <div class="l_title">活动公告</div>
+                </div>
+                <div class="actvs clearfix">
+                    <a href="javascript:;">
+                        <div class="info_img img1 fl_l"></div>
+                    </a>
+                    <div class="info_in fl_l">
+                        <a href="javascript:;">
+                            <div class="info_name">大连理工大学与华为软件工程大师华山论剑，邀您参与。</div>
+                        </a>
+                        <span>Classroom |</span>
+                        <span>2020/03/31</span>
+                    </div>
+                </div>
+                <div class="actvs clearfix">
+                    <a href="javascript:;">
+                        <div class="info_img img2 fl_l"></div>
+                    </a>
+                    <div class="info_in fl_l">
+                        <a href="javascript:;">
+                            <div class="info_name">大连理工、华为云、目睹有课三方携手直播JAVA线上教学。</div>
+                        </a>
+                        <span>Classroom |</span>
+                        <span>2020/02/07</span>
+                    </div>
+                </div>
+                <div class="actvs clearfix">
+                    <a href="javascript:;">
+                        <div class="info_img img3 fl_l"></div>
+                    </a>
+                    <div class="info_in fl_l">
+                        <a href="javascript:;">
+                            <div class="info_name">【Part1】玩转华为云Classroom，在线教学so easy!</div>
+                        </a>
+                        <span>Classroom |</span>
+                        <span>2020/02/01</span>
+                    </div>
+                </div>
+                <div class="actvs clearfix">
+                    <a href="javascript:;">
+                        <div class="info_img img4 fl_l"></div>
+                    </a>
+                    <div class="info_in fl_l">
+                        <a href="javascript:;">
+                            <div class="info_name">【Part2】玩转华为云Classroom，在线教学so easy!</div>
+                        </a>
+                        <span>Classroom |</span>
+                        <span>2020/02/01</span>
+                    </div>
+                </div>
+                <div class="actvs clearfix">
+                    <a href="javascript:;">
+                        <div class="info_img img5 fl_l"></div>
+                    </a>
+                    <div class="info_in fl_l">
+                        <a href="javascript:;">
+                            <div class="info_name">Classroom开放免费高校自学课程，与您并肩战"疫"！</div>
+                        </a>
+                        <span>Classroom |</span>
+                        <span>2020/01/31</span>
+                    </div>
+                </div>
+                <div class="actvs clearfix">
+                    <a href="javascript:;">
+                        <div class="info_img img6 fl_l"></div>
+                    </a>
+                    <div class="info_in fl_l">
+                        <a href="javascript:;">
+                            <div class="info_name">Classroom线上教学免费开放，与您并肩战"疫"。</div>
+                        </a>
+                        <span>Classroom |</span>
+                        <span>2020/01/28</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <!--页面尾部区域-->
+        <!--提示：页面尾部内容可以简化处理-->
+        <div class="main clearfix">
+            <div class="footer_l fl_l">
+                <p>版权所有 © 华为软件技术有限公司 2020保留一切权利 <a href="javascript:;">苏ICP备17040376号-32</a> 苏B2-20130048号代理域名注册服务机构：新网
+                </p>
+                <a href="javascript:;">苏公网安备 32011402010008号</a>
+            </div>
+            <div class="footer_r fl_r"><span><a href="javascript:;"> 法律声明 |</a></span><span><a href="javascript:;">
+                        隐私政策</a></span></div>
+        </div>
+    </div>
+
+</body>
+
+</html>

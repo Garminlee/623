@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>const 关键字</title>
+</head>
+
+<body>
+    <script>
+        // const 用来声明常量，常量就是值（内存地址）不能变化的量。
+        // 具有块级作用域
+        // 声明常量时必须赋值
+        // 常量赋值后，值不能更改  若为复杂数据类型，则其本身对应的内存地址指针不能更改。但自己内部的元素值可以更改，因为复杂数据类型声明赋值的时候是赋值的内存地址。
+        const a = 10;
+        a = 100; // 报错   
+        const arr = [10, 100, 150];
+        arr[0] = 'abc';
+        arr[1] = 333;
+        console.log(arr); // 输出abc，333，150 
+        arr = ['des', 22333, 159]; // 报错
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解构赋值</title>
+</head>
+
+<body>
+    <script>
+        // ES6中允许通过解构的形式 对数组或者对象 按照一一对应的位置关系来对变量赋值。
+        // 如果变量个数和数组中元素个数不相等，也就是说不能一 一对应完成赋值，没有解构成功的变量的值为undefined。
+        /* -----------基本的数组解构------------------*/
+        let [a, b, c] = [1, 2, 3]; // 右边是数组 但左边的[a,b,c]不是数组 
+        console.log(a); // 1  
+        console.log(b); // 2
+        console.log(c); // 3
+        // let arr = [1, 2, 3];
+        // let [a, b, c, d, e] = arr;
+        // console.log(a); //  1
+        // console.log(b); //  2
+        // console.log(c); //  3
+        // console.log(d); //  undefined
+        // console.log(e); //  undefined
+        /* -----------基本的对象解构-----------------*/
+        let person = {
+            name: 'onepoint',
+            age: 18
+        };
+        let {
+            name,
+            age
+        } = person;
+        console.log(name); // 'onepoint'
+        console.log(age); // 18 
+        /* ------如果需要赋值的变量和对象的属性名不同那么可以使用所需要的对象属性名：变量名的形式来进行解构------*/
+        let person = {
+            name: 'onepoint',
+            age: 18,
+            sex: '男'
+        };
+        let {
+            name: myName,
+            age: myAge,
+            sex: mySex
+        } = person;
+        // 其中myName,myAge,mySex才是变量名 相当于别名 
+        console.log(myName); //  'onepoint'
+        console.log(myAge); //  18
+        console.log(mySex); //  '男'
+        /* ---------------------------------------------*/
+    </script>
+</body>
+
+</html>

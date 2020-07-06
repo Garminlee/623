@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegExp 元字符</title>
+</head>
+
+<body>
+    <script>
+        // ^ 以谁开始  $ 以谁结束
+        var rg = /abc/;
+        console.log(rg.test('abc')); // 输出true
+        console.log(rg.test('abcde')); // 输出true
+        console.log(rg.test('aabc')); // 输出true
+        // 因为在rg这个正则表达式中如果没有元字符，那就是只要包含有这个模式就返回true
+        console.log('-------------------------------------------------');
+        var rg1 = /^abc/;
+        console.log(rg1.test('abc')); // 输出true
+        console.log(rg1.test('abcde')); // 输出true
+        console.log(rg1.test('aabc')); // 输出false
+        console.log('-------------------------------------------------');
+
+        // $ 以谁结尾这个跟 ^ 元字符的使用方法和规则相同。 也可以结合使用
+        var rg2 = /^abc$/;
+        console.log(rg2.test('abc')); // 输出true
+        console.log(rg2.test('abcde')); // 输出false
+        console.log(rg2.test('aabc')); // 输出false
+    </script>
+</body>
+
+</html>
