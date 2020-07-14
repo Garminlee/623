@@ -1,0 +1,102 @@
+/* 标题部分 */
+
+.bgi {
+    background: url(../images/usbgi.png) no-repeat center;
+}
+
+
+/* 内容区域 */
+
+.usBox {
+    padding: 80px 100px;
+    color: #666666;
+    font-size: 14px;
+}
+
+.usBox .us p {
+    margin-bottom: 30px;
+    line-height: 2;
+}
+
+.usBox .us_pic {
+    position: relative;
+    height: 210px;
+    overflow: hidden;
+}
+
+.usBox .us_pic img {
+    position: absolute;
+    left: -30px;
+    height: 210px;
+}
+
+.iconcut {
+    height: 306px;
+    background-color: #265192;
+}
+
+.iconcut .pd-69 {
+    padding: 69px 0;
+}
+
+.iconcut ul li {
+    float: left;
+    width: 18%;
+    margin-right: 9%;
+    text-align: center;
+}
+
+.iconcut ul li:last-of-type {
+    margin-right: 0;
+}
+
+.iconcut li a {
+    display: inline-block;
+    text-align: center;
+    width: 123px;
+    height: 96px;
+}
+
+.iconcut li a i {
+    font-size: 50px;
+    color: #ffffff;
+}
+
+.iconcut li .line {
+    display: inline-block;
+    height: 1px;
+    width: 40px;
+    margin: 15px 0;
+    background-color: #fff;
+}
+
+.iconcut li p {
+    font-size: 16px;
+    color: #fff;
+}
+
+.patent .title {
+    font-size: 30px;
+    color: #000;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.patent {
+    padding: 10px 0 60px;
+}
+
+.patent ul li {
+    float: left;
+    width: 220px;
+    height: 300px;
+    margin-left: 20px;
+}
+
+.patent ul {
+    margin-left: -20px;
+}
+
+.patent ul li img {
+    width: 220px;
+}

@@ -1,0 +1,277 @@
+/* header 区域 */
+
+.wrapper {
+    width: 100%;
+    height: 700px;
+    background: url(../images/wrapper1.png) no-repeat center;
+}
+
+.mask {
+    background-color: rgba(0, 0, 0, .3);
+    padding: 66px 0;
+    color: #fff;
+}
+
+.mask .system {
+    font-size: 62px;
+    font-weight: 700;
+}
+
+.mask .p {
+    font-size: 16px;
+}
+
+
+/* content 内容区域 */
+
+.intro .top {
+    padding: 50px 0;
+    background-color: rgb(38, 81, 146);
+}
+
+.intro .top ul li {
+    float: left;
+}
+
+.icon i {
+    font-size: 40px;
+    color: #fff;
+    margin-right: 20px;
+}
+
+.liname {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #fff;
+}
+
+.liinfo {
+    width: 170px;
+    font-size: 12px;
+    color: rgb(171, 193, 229);
+}
+
+.intro .top ul .cutline {
+    height: 40px;
+    width: 1px;
+    background-color: rgb(30, 115, 190);
+    margin: 20px 3.5%;
+}
+
+.title {
+    font-size: 30px;
+    color: #000;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.details {
+    font-size: 14px;
+    color: #666;
+    line-height: 30px;
+    margin: 30px 0;
+}
+
+.viewmore {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.more {
+    font-size: 14px;
+    color: #fff;
+    padding: 10px 45px;
+    background-color: #265192;
+    transition-property: background;
+    transition-duration: .3s;
+}
+
+.more:hover {
+    background-color: rgb(30, 115, 190);
+}
+
+.intro .bottom {
+    text-align: center;
+    padding: 40px 0;
+}
+
+
+/* plan区域 */
+
+.plan {
+    background-color: #fafafa;
+    padding: 30px 0 100px 0;
+}
+
+.plans {
+    width: 100%;
+}
+
+.plan_left,
+.plan_right,
+.plans .img,
+.plans .plan_info {
+    width: 50%;
+    height: 300px;
+    background-color: #fff;
+}
+
+.plans .img img {
+    width: 100%;
+}
+
+.plan_info {
+    padding: 50px 20px;
+}
+
+.plan .icon {
+    text-align: center;
+}
+
+.plan .icon i {
+    color: rgb(210, 210, 210);
+}
+
+.planname {
+    font-size: 20px;
+    text-align: center;
+    color: #265192;
+}
+
+.plan p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.75;
+    margin: 35px 0;
+}
+
+
+/* 产品模块 */
+
+.products {
+    padding: 0 0 50px 0;
+}
+
+.products ul {
+    margin-left: -30px;
+}
+
+.products ul li {
+    float: left;
+    width: 275px;
+    margin: 0 0 30px 30px;
+    overflow: hidden;
+    border: 1px solid #eaeaea;
+    transition-property: border;
+    transition-duration: .3s;
+}
+
+.products ul li a {
+    display: block;
+}
+
+.products li .pdcImg {
+    overflow: hidden;
+}
+
+.products li .pdcImg img {
+    height: 324px;
+    margin-left: -45px;
+    transition: all .5s;
+}
+
+.products li .pdcImg img:hover {
+    transform: scale(1.1);
+}
+
+.products li .pdcname {
+    font-size: 14px;
+    text-align: center;
+    padding: 9px 0;
+}
+
+.products li:hover {
+    border-color: rgb(30, 115, 190);
+}
+
+.products li a:hover {
+    color: #383838;
+}
+
+
+/* news 区域 */
+
+.news {
+    padding: 0 0 50px 0;
+    background: url(../images/newsbgi.png) no-repeat center;
+    background-color: #fafafa;
+}
+
+.new {
+    height: 252px;
+    padding: 25px 40px;
+    background-color: #fff;
+    margin-bottom: 25px;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.new:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    transform: translateY(-4px);
+}
+
+.news_pic {
+    height: 200px;
+    width: 286px;
+    overflow: hidden;
+}
+
+.news_pic img {
+    height: 200px;
+    margin-left: -30px;
+    transition: all .5s;
+}
+
+.news_pic img:hover {
+    transform: scale(1.1);
+}
+
+.news_pic a {
+    display: block;
+}
+
+.news_info {
+    position: relative;
+    height: 100%;
+    width: 822px;
+    padding-left: 15px;
+}
+
+.news_info .newsname a {
+    font-size: 18px;
+    color: #404040;
+}
+
+.news_info .newsname a:hover {
+    color: #265192;
+}
+
+.news_info .newsinfo {
+    font-size: 12px;
+    line-height: 1.75;
+    color: #999999;
+    margin: 12px 0;
+}
+
+.news_info .date {
+    font-size: 12px;
+    color: #BBB;
+}
+
+.news_info .checkmore {
+    position: absolute;
+    bottom: 20px;
+    font-size: 14px;
+    color: #265192;
+}
