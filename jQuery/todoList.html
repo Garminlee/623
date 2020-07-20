@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoList</title>
+    <script src="./jquery.min.js"></script>
+    <script src="./todolist.js"></script>
+    <link rel="stylesheet" href="./todolist.css">
+
+</head>
+
+<body>
+    <div class="nav">
+        <div class="main clearfix">
+            <!-- <form action=""> -->
+            <label for="goal">ToDoList</label>
+            <input type="text" class="goal" id="goal" placeholder="添加ToDo">
+            <!-- </form> -->
+        </div>
+    </div>
+    <div class="content">
+        <div class="main">
+            <div class="doing">
+                <div class="title">正在进行 <span class="todoCount"></span></div>
+                <ol class="todolist ">
+
+                </ol>
+            </div>
+            <div class="done">
+                <div class="title">已经完成 <span class="doneCount"></span></div>
+                <ul class="donelist">
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

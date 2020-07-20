@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    min-height: 100%;
+}
+
 
 /* em 和 i 斜体的文字不倾斜 */
 
@@ -33,6 +37,10 @@ button {
 a {
     color: #383838;
     text-decoration: none
+}
+
+a:hover {
+    text-decoration: none;
 }
 
 button,

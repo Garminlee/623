@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>微博发布</title>
+    <script src="./jquery.min.js"></script>
+    <style>
+        li {
+            list-style: none;
+        }
+        
+        .box {
+            width: 500px;
+            margin: 0px auto;
+            border: 1px dotted #000000;
+        }
+        
+        #txt {
+            height: 300px;
+            width: 375px;
+        }
+        
+        ul li {
+            position: relative;
+            line-height: 1.75;
+            border-bottom: 1px dotted #999999;
+            display: none;
+            word-wrap: break-word;
+        }
+        
+        ul {
+            padding: 0 40px;
+        }
+        
+        ul li a {
+            position: absolute;
+            right: 0px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        $(document).ready(function() {
+            // 动态添加li
+            $("button").on("click", function() {
+                var li = $("<li></li>").html($("textarea").val() + "<a href = 'javascript:;'>删除</a>");
+                $("ul").prepend(li);
+                $("ul li").slideDown();
+                $("textarea").val("");
+            });
+            // 删除当前微博功能
+            $("ul").on("click", "a", function() {
+                $(this).parent("li").stop().slideUp(function() {
+                    $(this).remove();
+                });
+            })
+        })
+    </script>
+    <div class="box">
+        <span>微博发布</span>
+        <textarea name="" id="txt" cols="30" rows="10"></textarea>
+        <button>发布</button>
+        <ul></ul>
+    </div>
+</body>
+
+</html>

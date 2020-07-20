@@ -1,6 +1,6 @@
 /* header 区域 */
 
-.wrapper {
+#slider {
     width: 100%;
     height: 700px;
     background: url(../images/wrapper1.png) no-repeat center;
@@ -14,11 +14,20 @@
 
 .mask .system {
     font-size: 62px;
-    font-weight: 700;
+    transform: translateX(-1200px);
+    animation-delay: 1s;
+    animation-duration: 2s;
+    animation-name: leftToMid;
+    animation-fill-mode: forwards;
 }
 
 .mask .p {
     font-size: 16px;
+    transform: scale(0);
+    animation-name: scale1;
+    animation-duration: 2s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
 }
 
 
@@ -65,11 +74,19 @@
     padding: 50px 0;
 }
 
+.scale1 {
+    animation-name: scale1;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
 .details {
     font-size: 14px;
     color: #666;
     line-height: 30px;
     margin: 30px 0;
+    text-align: center;
+    transform: scale(0);
 }
 
 .viewmore {
@@ -116,6 +133,26 @@
     background-color: #fff;
 }
 
+.plan_left {
+    transform: translateX(-1200px);
+}
+
+.plan_right {
+    transform: translateX(1200px);
+}
+
+.l-m {
+    animation-name: leftToMid;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+}
+
+.r-m {
+    animation-name: rightToMid;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+}
+
 .plans .img img {
     width: 100%;
 }
@@ -150,6 +187,17 @@
 
 .products {
     padding: 0 0 50px 0;
+}
+
+.products .pro_info {
+    transform: translateY(400px);
+}
+
+.goUp {
+    animation-name: goUp;
+    animation-delay: .5s;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
 }
 
 .products ul {
@@ -207,18 +255,28 @@
     background-color: #fafafa;
 }
 
+.news .main {
+    position: relative;
+}
+
 .new {
+    position: relative;
+    top: 0;
+    left: 0;
     height: 252px;
     padding: 25px 40px;
     background-color: #fff;
     margin-bottom: 25px;
     cursor: pointer;
     transition: all .3s;
+    transform: translateY(300px);
+    animation-delay: .2s !important;
+    animation-duration: 1s !important;
 }
 
 .new:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-    transform: translateY(-4px);
+    top: -5px;
 }
 
 .news_pic {
