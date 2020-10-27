@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>列表渲染</title>
+</head>
+
+<body>
+    <div id="lists">
+        <h2>v-for 遍历数组</h2>
+        <ul>
+            <!-- <li v-for="(item, index) in items"> -->
+            <li v-for='(person, index) in persons' :key='index'>
+                {{index}} -- {{person.name}} -- {{person.age}} --<button @click='deleteP(index)'>删除</button>--<button @click='updateP(index, {name:"xiaohui",age:22})'>更新</button>
+            </li>
+        </ul>
+        <h2>v-for 遍历对象</h2>
+        <!-- 也可以提供第二个的参数为 property 名称 (也就是键名),可以用第三个参数作为索引 
+             <div v-for="(value, name, index) in object">-->
+        <ul>
+            <li v-for="(value,name, index) in persons[0]">
+                {{index}}:{{name}}--{{value}}
+            </li>
+        </ul>
+
+    </div>
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#lists',
+            data: {
+                persons: [{
+                    name: 'zhangsan',
+                    age: 18
+                }, {
+                    name: 'lisi',
+                    age: 20
+                }, {
+                    name: 'wangmazi',
+                    age: 16
+                }, {
+                    name: 'zhaoyun',
+                    age: 12
+                }]
+            },
+            methods: {
+                deleteP(index) {
+                    this.persons.splice(index, 1);
+                },
+                updateP(index, newP) {
+                    this.persons.splice(index, 1, newP);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

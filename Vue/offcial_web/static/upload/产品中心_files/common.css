@@ -1,0 +1,145 @@
+.main {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+
+/* nav 导航栏 */
+
+.nav {
+    height: 70px;
+    line-height: 70px;
+    background-color: #fff;
+    font-size: 14px;
+}
+
+.logo {
+    width: 132px;
+    height: 66px;
+}
+
+.logo img {
+    width: 100%;
+}
+
+.navs ul li {
+    float: left;
+}
+
+.navs li a {
+    display: block;
+    padding: 0 32px;
+}
+
+.navs li a:hover {
+    color: #004b98;
+}
+
+.navs ul li:first-of-type a {
+    padding: 0 46px;
+}
+
+.navs ul li:hover,
+.navs ul .current {
+    color: #004b98;
+    background: url(../images/选中.png) no-repeat center;
+}
+
+.navs ul .current a {
+    color: #004b98;
+}
+
+
+/* 分页标题部分 */
+
+.bgi {
+    text-align: center;
+    height: 300px;
+}
+
+.bgi .main {
+    position: relative;
+}
+
+.bgi .main .title {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.bgi .main .title p:first-of-type {
+    font-size: 40px;
+    margin-bottom: 8px;
+}
+
+
+/* footer 页脚区域 */
+
+.footer {
+    position: relative;
+    bottom: 0px;
+    left: 0px;
+}
+
+.footer,
+.copyright {
+    background-color: rgb(51, 51, 51);
+}
+
+.copyright {
+    text-align: center;
+    border-top: 1px solid rgb(89, 89, 89);
+    padding: 6px 0 12px 0;
+}
+
+.footer a {
+    font-size: 14px;
+    color: #999999;
+}
+
+.footer_box {
+    position: relative;
+    height: 220px;
+}
+
+.footer_box .info {
+    position: absolute;
+    top: 60px;
+    left: 64px;
+}
+
+.footer_box .info p {
+    margin-bottom: 8px;
+}
+
+.QRcode {
+    position: absolute;
+    top: 49px;
+    right: 11px;
+    background-color: #fff;
+    padding: 7px;
+}
+
+.QRcode img {
+    width: 110px;
+    height: 110px;
+}
+
+.QR span {
+    position: absolute;
+    right: 25px;
+    bottom: 15px;
+    color: #888888;
+    font-size: 12px;
+}

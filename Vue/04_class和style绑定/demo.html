@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class 和 style 绑定</title>
+    <style>
+        .aClass {
+            color: pink;
+        }
+        
+        .bClass {
+            color: skyblue;
+        }
+        
+        .cClass {
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="demo">
+        <h2>class绑定: :class='xxx'</h2>
+        <p class="cClass" :class='activeClass'>xxx是字符串</p>
+        <button @click='change'>更新样式</button>
+        <p :class="{aClass: isActive, bClass: hasErr}">xxx是对象</p>
+        <p :class="['aClass', 'cClass']">xxx是数组</p>
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#demo',
+            data: {
+                activeClass: 'aClass',
+                isActive: true,
+                hasErr: false
+            },
+            methods: {
+                change() {
+                    this.activeClass = 'bClass';
+                    this.isActive = 'false';
+                    this.hasErr = 'true'
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

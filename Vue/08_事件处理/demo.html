@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件处理</title>
+</head>
+
+<body>
+    <div id="eg">
+        <h2>1. 绑定监听</h2>
+        <button v-on:click="test1">原始绑定写法</button>
+        <button @click="test2('可以自己传入参数')">可以传入参数</button>
+        <!-- 如果回调函数没有传入参数则默认会传入$event这个特殊变量来访问原始的DOM事件 ，但如果有自定义传入参数，则不会自动传入$event  需要手动添加进去传入方法 -->
+        <button @click="test3('可以用特殊变量$event传入方法以此来访问原始的DOM事件',$event)">可以通过访问原始DOM事件来获取这个值</button>
+
+        <h2>2. 事件修饰符</h2>
+        <!-- 对于传统的停止事件冒泡 和 阻止事件默认行为等等操作 vue对此提供了事件修饰符来完成，以便于在使用方法时只有纯粹的数据逻辑 不用去考虑处理DOM事件细节 
+        .stop  停止事件冒泡
+        .prevent   阻止事件默认行为
+        .capture    
+        .self   只当在 event.target 是当前元素自身时触发处理函数  即事件不是从内部元素触发的
+        .once   事件将只会触发一次
+        .passive
+    -->
+        <div @click="test4" style="width: 300px;height: 300px; background-color: pink; font-size: 16px; text-align: center; line-height: 100px;">
+            <div @click.stop="test5" style="width: 100px;height: 100px; background-color: skyblue; font-size: 16px; text-align: center; line-height: 100px;">
+                子盒子
+            </div>
+            父盒子
+        </div>
+        <a @click.prevent="test6" href="http://www.baidu.com">点击我并不会跳转页面</a>
+
+        <h2>3. 按键修饰符</h2>
+        <input @keyup.enter="test7" type="text">
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#eg',
+            methods: {
+                test1() {
+                    alert('v-on:事件名="回调函数"');
+                },
+                test2(arg) {
+                    alert(arg);
+                },
+                test3(arg, event) {
+                    alert(`${arg}-----${event.target.innerHTML}`)
+                },
+                test4() {
+                    alert('这是父盒子的点击事件')
+                },
+                test5(event) {
+                    // 由于事件冒泡的机制，在点击子盒子的时候触发子盒子事件以后 还是跟着冒泡触发父盒子的点击事件。所以需要停止事件冒泡。传统方法就是
+                    // event.stopPropagation();
+                    alert('这是子盒子的点击事件')
+                },
+                test6(event) {
+                    // event.preventDefault();     
+                    alert('这个链接不会跳转页面');
+                },
+                test7() {
+                    alert(event.target.value);
+                }
+
+            }
+        });
+    </script>
+</body>
+
+</html>

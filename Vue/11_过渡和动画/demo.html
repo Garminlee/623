@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过渡和动画</title>
+    <style>
+        /* 过渡区css */
+        
+        .fade-enter-active,
+        .fade-leave-active {
+            transition: opacity .5s;
+        }
+        
+        .fade-enter,
+        .fade-leave-to {
+            opacity: 0;
+        }
+        /* 动画区CSS */
+        
+        .flex-enter-active {
+            animation: bounce .5s;
+        }
+        
+        .flex-leave-active {
+            animation: bounce .5s reverse;
+        }
+        
+        @keyframes bounce {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.5);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="move">
+        <button @click="show">toggle1</button>
+        <transition name="fade">
+            <p v-show="isShow">hello v1</p>
+        </transition>
+        <button @click="OK=!OK">toggle2</button> <br>
+        <transition name="flex">
+            <p v-show="OK" style="display: inline-block;">hello v2</p>
+        </transition>
+    </div>
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#move',
+            data: {
+                isShow: true,
+                OK: true
+            },
+            methods: {
+                show() {
+                    this.isShow = !this.isShow
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue基础</title>
+</head>
+<!-- 
+    1.引入vue.js
+    2.创建Vue对象  （实例化
+        el: 指定根element(选择器)
+        data: 初始化数据(页面可以直接访问)
+    3.双向数据绑定:v-model
+    4.显示数据: {{xxxx}}
+    5.vue 的 mvvm 实现
+ -->
+
+<body>
+    <div id="app">
+        {{ message }}
+    </div>
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let app = new Vue({ // 配置对象 options
+            el: "#app", // 挂载点
+            data: {
+                message: 'hello vue'
+            }
+        });
+    </script>
+</body>
+
+</html>

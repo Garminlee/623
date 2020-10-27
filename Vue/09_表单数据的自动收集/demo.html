@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单数据绑定</title>
+</head>
+
+<body>
+    <div id="demo">
+        <form action="#" @submit.prevent="hanldeSub">
+            <span>用户名:</span>
+            <input type="text" v-model="username"><br>
+
+            <span>密 码:</span>
+            <input type="password" v-model="pwd"> <br>
+
+            <span>性别:</span>
+            <input type="radio" id="female" value="女" v-model="sex"><label for="female">女</label>
+            <input type="radio" id="male" value="男" v-model="sex"><label for="male">男</label><br>
+
+            <span>爱好:</span>
+            <input type="checkbox" name="habbit" id="basket" value="basket" v-model="habbits"><label for="basket">篮球</label>
+            <input type="checkbox" name="habbit" id="foot" value="foot" v-model="habbits"><label for="foot">足球</label>
+            <input type="checkbox" name="habbit" id="pingpang" value="pingpang" v-model="habbits"><label for="pingpang">乒乓</label> <br>
+
+            <span>城市:</span>
+            <select name="city" v-model="cityID">
+                <option value="">请选择</option>
+                <option :value="city.id" v-for="(city, index) in citis" :key="index">{{city.name}}</option>
+            </select><br>
+
+            <span>介绍:</span>
+            <textarea name="intro" id="" cols="30" rows="10" v-model="intro"></textarea><br>
+
+            <input type="submit" value="注册"></form>
+    </div>
+
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#demo',
+            data: {
+                username: '',
+                pwd: '',
+                sex: '女',
+                habbits: ['foot'],
+                citis: [{
+                    id: 1,
+                    name: '重庆'
+                }, {
+                    id: 2,
+                    name: '北京'
+                }, {
+                    id: 3,
+                    name: '山东'
+                }],
+                cityID: 1,
+                intro: ''
+            },
+            methods: {
+                hanldeSub() {
+                    console.log(this.username, this.pwd, this.sex, this.habbits, this.citis, this.intro);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

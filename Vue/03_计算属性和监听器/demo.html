@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算属性的基本使用</title>
+</head>
+
+<body>
+    <div id="app">
+        姓：<input type="text" placeholder="First Name" v-model='firstName'><br> 名：
+        <input type="text" placeholder="Last Name" v-model='lastName'><br> 姓名1(单向)：
+        <input type="text" placeholder="Full Name" v-model='fullName1'><br> 姓名2(单向)：
+        <input type="text" placeholder="Full Name" v-model='fullName2'><br> 姓名3(双向)：
+        <input type="text" placeholder="Full Name" v-model='fullName3'><br>
+    </div>
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                firstName: 'A',
+                lastName: 'B',
+                fullName2: 'A B'
+            },
+            computed: {
+                // 什么时候执行： 初始化显示 /  相关的data属性数据发生变化时
+                fullName1() {
+                    return this.firstName + ' ' + this.lastName
+                },
+                fullName3: {
+                    // 计算属性的getter 和 setter
+                    get: function() {
+                        // get  根据相关数据 计算并返回当前属性的值
+                        return this.firstName + ' ' + this.lastName
+                    },
+                    set: function(newVal) {
+                        // 监视当前属性值， 当前属性值变化时 更新相关属性数据
+                        let names = newVal.split(' ');
+                        this.firstName = names[0];
+                        this.lastName = names[1];
+                    }
+                }
+
+            },
+            watch: { // watch 是监听器  添加监听的方式有两种，一种是配置监听
+                firstName: function(newValue, oldValue) { // firstName发生变化时执行
+                    this.fullName2 = newValue + ' ' + this.lastName;
+                }
+            }
+        });
+        // 另一种添加监视的方式 vm.$watch('xxx', function(value){})
+        vm.$watch('lastName', function(newValue, oldValue) {
+            this.fullName2 = this.firstName + ' ' + newValue;
+        })
+    </script>
+</body>
+
+</html>

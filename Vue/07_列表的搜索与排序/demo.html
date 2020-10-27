@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>列表的搜索和排序</title>
+</head>
+
+<body>
+    <div id="search">
+        <input type="text" v-model="searchName">
+        <ul>
+            <li v-for="(item, index) in filterName" :key="index">
+                {{index}}:{{item.name}}--{{item.age}}
+            </li>
+        </ul>
+        <button @click="setorderFlag(1)">年龄升序</button>
+        <button @click="setorderFlag(2)">年龄降序</button>
+        <button @click="setorderFlag(0)">原本顺序</button>
+        <!-- <button>年龄名字长短升序</button> -->
+    </div>
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#search',
+            data: {
+                searchName: '',
+                orderFlag: 0,
+                persons: [{
+                    name: 'zhangsan',
+                    age: 18
+                }, {
+                    name: 'lisi',
+                    age: 20
+                }, {
+                    name: 'wangmazi',
+                    age: 16
+                }, {
+                    name: 'zhaoyun',
+                    age: 12
+                }]
+            },
+            computed: {
+                filterName() {
+                    // 取出相关数据
+                    const {
+                        searchName,
+                        persons,
+                        orderFlag
+                    } = this;
+
+                    // 最终显示的数组
+                    let finalArr = [];
+                    // 对persons进行过滤
+                    finalArr = persons.filter(p =>
+                        p.name.indexOf(searchName) !== -1
+                    );
+                    // 排序 
+                    if (orderFlag !== 0) {
+                        finalArr.sort(function(p1, p2) {
+                            if (orderFlag === 2) {
+                                return p2.age - p1.age;
+                            } else {
+                                return p1.age - p2.age;
+                            }
+                        });
+                    }
+
+                    return finalArr;
+                }
+
+            },
+            methods: {
+                setorderFlag(order) {
+                    // 定义一个排序的判断标志，若为0代表默认排序，1代表升序，2代表降序
+                    this.orderFlag = order;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

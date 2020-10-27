@@ -1,0 +1,53 @@
+/* 标题部分 */
+
+.bgi {
+    background: url(../images/products.png) no-repeat center;
+}
+
+
+/* 产品区域 */
+
+.pdcs {
+    padding: 100px 0;
+}
+
+.pdcs ul {
+    margin-left: -30px;
+}
+
+.pdcs ul li {
+    float: left;
+    width: 375px;
+    height: 260px;
+    margin: 0 0 30px 30px;
+    overflow: hidden;
+}
+
+.pdcs ul li a {
+    display: block;
+}
+
+.pdcs li .pdcImg {
+    overflow: hidden;
+}
+
+.pdcs li .pdcImg img {
+    height: auto;
+    width: 373px;
+    margin-top: -39px;
+    transition: all .5s;
+}
+
+.pdcs li .pdcImg img:hover {
+    transform: scale(1.1);
+}
+
+.pdcs li .pdcname {
+    font-size: 14px;
+    text-align: center;
+    padding: 9px 0;
+}
+
+.pdcs li a:hover {
+    color: #383838;
+}
