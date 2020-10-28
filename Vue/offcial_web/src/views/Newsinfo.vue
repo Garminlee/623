@@ -4,11 +4,11 @@
       <div class="bgi"></div>
       <div class="article container">
         <h1 :newsArr="$store.state.newsArr">
-          {{ $store.state.newsArr[id - 1].title }}
+          {{ getTitle }}
         </h1>
-        <span class="source">{{ $store.state.newsArr[id - 1].source }}</span>
+        <span class="source">（文章来自网络）</span>
         <p>&nbsp;</p>
-        <div v-html="$store.state.newsArr[id - 1].infoText"></div>
+        <div v-html="getCtx"></div>
         <p>&nbsp;</p>
       </div>
     </div>
@@ -20,6 +20,20 @@ export default {
   // mounted() {
   //   this.$store.dispatch("reqNewsArr");
   // },
+  computed: {
+    getTitle() {
+      let newsIndex = this.$store.state.newsArr.findIndex(
+        (item) => item.id == this.id
+      );
+      return this.$store.state.newsArr[newsIndex].title;
+    },
+    getCtx() {
+      let newsIndex = this.$store.state.newsArr.findIndex(
+        (item) => item.id == this.id
+      );
+      return this.$store.state.newsArr[newsIndex].detail;
+    },
+  },
 };
 </script>
 <style lang="">
@@ -34,11 +48,17 @@ export default {
 
 .bgi .title {
   position: absolute;
-  top: 100px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   color: #ffffff;
   font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+  .bgi {
+    height: 150px;
+  }
 }
 
 .bgi .title p:first-of-type {

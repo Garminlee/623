@@ -25,15 +25,14 @@
                     msg.title
                   }}</router-link>
                 </p>
-                <p class="newsctx" v-html="msg.infoText"></p>
+                <p class="newsctx" v-html="msg.detail"></p>
                 <p>
-                  <span class="newsDate">{{ msg.date }}</span>
+                  <span class="newsDate">{{ msg.createTime }}</span>
                 </p>
               </div>
             </div>
           </div>
         </div>
-        <PageTo />
       </div>
     </div>
     <!-- 内容区域 结束 -->
@@ -41,14 +40,10 @@
 </template>
 
 <script>
-import PageTo from "../components/pageTo";
 export default {
   props: ["id"],
-  // mounted() {
-  //   this.$store.dispatch("reqNewsArr");
-  // },
-  components: {
-    PageTo,
+  mounted() {
+    this.$store.dispatch("reqNewsArr");
   },
 };
 </script>
@@ -74,13 +69,18 @@ export default {
 
 .bgi .title {
   position: absolute;
-  top: 100px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   color: #ffffff;
   font-size: 16px;
 }
 
+@media screen and (max-width: 768px) {
+  .bgi {
+    height: 150px;
+  }
+}
 .bgi .title p:first-of-type {
   font-size: 40px;
   margin-bottom: 8px;

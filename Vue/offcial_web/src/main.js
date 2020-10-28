@@ -6,7 +6,7 @@ import router from './router'
 import store from './store/'
 
 Vue.config.productionTip = false;
-import './mock/'
+// import './mock/'
 import './css/base.css'
 import './js/jquery.min.js'
 import './js/bootstrap/js/bootstrap'

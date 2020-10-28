@@ -5,7 +5,7 @@
         <div class="col-md-12 nav">
           <div class="row">
             <div class="col-sm-2 col-xs-2 logo">
-              <router-link to="/index"
+              <router-link to="/index" @click.native="$router.go(0)"
                 ><img src="../static/images/logo.png" alt=""
               /></router-link>
             </div>
@@ -14,40 +14,30 @@
             >
               <div class="row">
                 <ul class="clearfix">
-                  <li
-                    class="col-xs-2 col-sm-offset-2"
-                    @click="currentClass(0)"
-                    :class="{ current: activeClass == 0 }"
-                  >
-                    <router-link to="/index">首页</router-link>
+                  <li class="col-xs-2 col-sm-offset-2">
+                    <router-link to="/index" @click.native="$router.go(0)"
+                      >首页</router-link
+                    >
                   </li>
-                  <li
-                    class="col-xs-2"
-                    :class="{ current: activeClass == 1 }"
-                    @click="currentClass(1)"
-                  >
-                    <router-link to="/about">关于我们</router-link>
+                  <li class="col-xs-2">
+                    <router-link to="/about" @click.native="$router.go(0)"
+                      >关于我们</router-link
+                    >
                   </li>
-                  <li
-                    class="col-xs-2"
-                    :class="{ current: activeClass == 2 }"
-                    @click="currentClass(2)"
-                  >
-                    <router-link to="/products">产品中心</router-link>
+                  <li class="col-xs-2">
+                    <router-link to="/products" @click.native="$router.go(0)"
+                      >产品中心</router-link
+                    >
                   </li>
-                  <li
-                    class="col-xs-2"
-                    :class="{ current: activeClass == 3 }"
-                    @click="currentClass(3)"
-                  >
-                    <router-link to="/news">新闻动态</router-link>
+                  <li class="col-xs-2">
+                    <router-link to="/news" @click.native="$router.go(0)"
+                      >新闻动态</router-link
+                    >
                   </li>
-                  <li
-                    class="col-xs-2"
-                    :class="{ current: activeClass == 4 }"
-                    @click="currentClass(4)"
-                  >
-                    <router-link to="/cases">解决方案</router-link>
+                  <li class="col-xs-2">
+                    <router-link to="/cases" @click.native="$router.go(0)"
+                      >解决方案</router-link
+                    >
                   </li>
                 </ul>
               </div>
@@ -70,19 +60,29 @@
           <div class="xsnavs-left col-xs-11 clearfix">
             <ul @click="isShow = !isShow">
               <li class="col-xs-12">
-                <router-link to="/index">首页</router-link>
+                <router-link to="/index" @click.native="$router.go(0)" exact
+                  >首页</router-link
+                >
               </li>
               <li class="col-xs-12">
-                <router-link to="/about">关于我们</router-link>
+                <router-link to="/about" @click.native="$router.go(0)" exact
+                  >关于我们</router-link
+                >
               </li>
               <li class="col-xs-12">
-                <router-link to="/products">产品中心</router-link>
+                <router-link to="/products" @click.native="$router.go(0)" exact
+                  >产品中心</router-link
+                >
               </li>
               <li class="col-xs-12">
-                <router-link to="/news">新闻动态</router-link>
+                <router-link to="/news" @click.native="$router.go(0)" exact
+                  >新闻动态</router-link
+                >
               </li>
               <li class="col-xs-12">
-                <router-link to="/cases">解决方案</router-link>
+                <router-link to="/cases" @click.native="$router.go(0)" exact
+                  >解决方案</router-link
+                >
               </li>
             </ul>
           </div>
@@ -100,14 +100,7 @@ export default {
   data() {
     return {
       isShow: false,
-      activeClass: -1,
     };
-  },
-  methods: {
-    currentClass: (index) => {
-      this.activeClass = index;
-      // console.log(this.activeClass);
-    },
   },
   components: {
     Footer,

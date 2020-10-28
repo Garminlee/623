@@ -10,40 +10,44 @@
         </div>
       </div>
     </div>
-    <div class="container pdcBox">
+    <div class="container pdcBox" v-if="$store.state.articleArr.articleDetails">
       <div>
         <router-link to="/index">首页</router-link> >
         <router-link to="/products">产品中心</router-link> >
-        <span class="unclick">{{ $store.state.pdcArr[id - 1].title }}</span>
+        <span class="unclick">{{
+          $store.state.articleArr.articleDetails.title
+        }}</span>
       </div>
       <div class="pdcInfoImg clearfix">
-        <img :src="$store.state.pdcArr[id - 1].imgUrl" alt="" />
+        <img :src="$store.state.articleArr.articleDetails.img_url" alt="" />
       </div>
       <div class="weightLine"></div>
-      <h2>{{ $store.state.pdcArr[id - 1].title }}</h2>
-      <ul class="pdcUl">
-        <li
-          v-for="(pdcParam, index) in $store.state.pdcArr[id - 1].pdcParams"
-          :key="index"
-        >
-          {{ pdcParam }}
-        </li>
-      </ul>
+      <h2>{{ $store.state.articleArr.articleDetails.title }}</h2>
+      <div v-html="$store.state.articleArr.articleDetails.content"></div>
       <div class="pdc-go-back">
         <router-link
-          :to="`/productinfo/${$store.state.pdcArr[id - 1].id - 1}`"
+          :to="`/productinfo/${$store.state.articleArr.lastArticle.id}`"
           class="pdcGo"
           :class="isPreClick"
+          @click.native="$router.go(0)"
         >
-          < 上一个： {{ preTitle }}</router-link
+          < 上一个：
+          {{
+            $store.state.articleArr.lastArticle.title || "这已经是第一篇文章了"
+          }}</router-link
         >
-        <!-- $store.state.pdcArr[id - 2].title -->
         <router-link
-          :to="`/productinfo/${$store.state.pdcArr[id - 1].id + 1}`"
+          :to="`/productinfo/${$store.state.articleArr.nextArticle.id}`"
           class="fl_r pdcGo"
           :class="isNextClick"
+          @click.native="$router.go(0)"
         >
-          下一个： {{ nextTitle }} ></router-link
+          下一个：
+          {{
+            $store.state.articleArr.nextArticle.title ||
+            "这已经是最后一篇文章了"
+          }}
+          ></router-link
         >
       </div>
     </div>
@@ -56,34 +60,28 @@ export default {
   data() {
     return {};
   },
-
+  mounted() {
+    this.$store.dispatch("getArticle", {
+      articleId: this.id,
+      menuId: 51,
+    });
+  },
   computed: {
     isPreClick() {
-      return this.id <= 1 ? { unclick: true } : { unclick: false };
-    },
-    isNextClick() {
-      return this.id >= this.$store.state.pdcArr.length
+      return !this.$store.state.articleArr.lastArticle.id
         ? { unclick: true }
         : { unclick: false };
     },
-    preTitle() {
-      return this.id <= 1
-        ? this.$store.state.pdcArr[this.id - 1].title
-        : this.$store.state.pdcArr[this.id - 2].title;
-    },
-    nextTitle() {
-      return this.id >= this.$store.state.pdcArr.length
-        ? this.$store.state.pdcArr[this.id - 1].title
-        : this.$store.state.pdcArr[this.id].title;
+    isNextClick() {
+      return !this.$store.state.articleArr.nextArticle.id
+        ? { unclick: true }
+        : { unclick: false };
     },
   },
-  // mounted() {
-  //   this.$store.dispatch("reqPdcsArr");
-  // },
 };
 </script>
 
-<style lang="">
+<style>
 .bgi {
   background: url(../../static/images/products.png) no-repeat center;
 }
@@ -92,14 +90,19 @@ export default {
   height: 300px;
   position: relative;
 }
-
 .bgi .title {
   position: absolute;
-  top: 100px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   color: #ffffff;
   font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+  .bgi {
+    height: 150px;
+  }
 }
 
 .bgi .title p:first-of-type {
@@ -144,15 +147,7 @@ h2 {
   color: #404040;
   margin: 100px 0;
 }
-.pdcUl {
-  padding-left: 16px;
-}
-.pdcUl li {
-  list-style: disc;
-  font-size: 14px;
-  color: #404040;
-  line-height: 5em;
-}
+
 .pdc-go-back {
   margin-top: 50px;
 }

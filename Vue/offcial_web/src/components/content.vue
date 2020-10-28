@@ -91,7 +91,7 @@
       </div>
     </div>
     <!-- 解决方案 -->
-    <div class="plan" @click="caseBgi(0)">
+    <div class="plan">
       <div>
         <div class="title">解决方案</div>
         <div class="plans container">
@@ -199,7 +199,7 @@
       </div>
     </div>
     <!-- 产品中心 -->
-    <div class="products container" @click="caseBgi(2)">
+    <div class="products container">
       <div class="title">产品中心</div>
       <div class="row">
         <div
@@ -218,13 +218,13 @@
         </div>
       </div>
       <div class="viewmore">
-        <router-link to="/products"
+        <router-link to="/products" @click.native="$router.go(0)"
           ><span class="more">了解更多</span></router-link
         >
       </div>
     </div>
     <!-- 新闻动态 -->
-    <div class="news" @click="caseBgi(3)">
+    <div class="news">
       <div class="container">
         <div class="row">
           <div class="title">新闻动态</div>
@@ -241,9 +241,9 @@
                     msg.title
                   }}</router-link>
                 </p>
-                <div class="newsctx" v-html="msg.infoText"></div>
+                <div class="newsctx" v-html="msg.detail"></div>
                 <p>
-                  <span class="newsDate">{{ msg.date }}</span>
+                  <span class="newsDate">{{ msg.createTime }}</span>
                 </p>
                 <p class="spaceHolder"></p>
                 <p class="newsCheck hidden-xs hidden-sm">
@@ -256,7 +256,7 @@
           </div>
         </div>
         <div class="viewmore">
-          <router-link to="/news"
+          <router-link to="/news" @click.native="$router.go(0)"
             ><span class="more">了解更多</span></router-link
           >
         </div>
@@ -269,13 +269,16 @@
 export default {
   props: ["id"],
   mounted() {
-    this.$store.dispatch("reqPdcsArr");
+    this.$store.dispatch("reqPdcsArr", {
+      menuId: 51,
+      pageNum: 1,
+    });
     this.$store.dispatch("reqNewsArr");
   },
   methods: {
-    caseBgi(flag) {
-      this.$store.state.dispatch("TitleBgi", flag);
-    },
+    // caseBgi(flag) {
+    //   this.$store.dispatch("TitleBgi", flag);
+    // },
   },
 };
 </script>

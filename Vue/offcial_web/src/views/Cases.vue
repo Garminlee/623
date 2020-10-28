@@ -86,16 +86,20 @@ export default {};
   height: 300px;
   position: relative;
 }
-
 .bgi .title {
   position: absolute;
-  top: 100px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   color: #ffffff;
   font-size: 16px;
 }
 
+@media screen and (max-width: 768px) {
+  .bgi {
+    height: 150px;
+  }
+}
 .bgi .title p:first-of-type {
   font-size: 40px;
   margin-bottom: 8px;

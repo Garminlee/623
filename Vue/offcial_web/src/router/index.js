@@ -11,6 +11,7 @@ import Cases from '../views/Cases.vue'
 import Newsinfo from '../views/Newsinfo.vue'
 import Productinfo from '../views/Productinfo.vue'
 export default new Router({
+    linkExactActiveClass: 'current',
     routes: [{
             path: '/',
             component: Index

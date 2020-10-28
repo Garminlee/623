@@ -15,7 +15,7 @@
             <ul>
               <li
                 class="col-md-4 col-xs-6"
-                v-for="pdc in $store.state.pdcArr"
+                v-for="pdc in currentPageData"
                 :key="id"
               >
                 <router-link :to="`/productinfo/${pdc.id}`">
@@ -29,18 +29,21 @@
           </div>
           <nav aria-label="Page navigation">
             <ul class="pagination">
-              <li>
-                <a href="#" aria-label="Previous">
+              <li @click="prePage">
+                <a aria-label="Previous">
                   <span aria-hidden="true">&laquo;</span>
                 </a>
               </li>
-              <li><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-              <li>
-                <a href="#" aria-label="Next">
+              <li
+                v-for="index in totalPage"
+                :class="currentPage == index ? 'active' : ''"
+                @click="curPage(index)"
+              >
+                <a>{{ index }}</a>
+              </li>
+
+              <li @click="nextPage">
+                <a aria-label="Next">
                   <span aria-hidden="true">&raquo;</span>
                 </a>
               </li>
@@ -53,15 +56,75 @@
 </template>
 
 <script>
+import Axios from "axios";
+
 export default {
   props: ["id"],
-  // mounted() {
-  //   this.$store.dispatch("reqPdcsArr");
-  // },
+  data() {
+    return {
+      // 后台传过来的所有数据
+      totalData: [],
+      // 总页数
+      totalPage: 1,
+      // 总条数
+      count: 1,
+      // 每一页显示多少条数据
+      pageSize: 6,
+      // 当前页显示的数据
+      currentPageData: [],
+      // 当前页数 默认显示第一页
+      currentPage: 1,
+    };
+  },
+
+  mounted() {
+    this.getPage();
+  },
+
+  methods: {
+    async getData(index) {
+      this.currentPage = index || this.currentPage;
+      await Axios.post("http://master.hogdata.cn/api/article/listByMenu", {
+        menuId: 51,
+        pageNum: 1,
+      })
+        .then((res) => {
+          this.totalData = res.data.data;
+          this.count = res.data.count;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    async getPage(index) {
+      await this.getData(index);
+      // console.log(this.totalData);
+      this.totalPage = Math.ceil(this.count / this.pageSize);
+      this.totalPage = this.totalPage == 0 ? 1 : this.totalPage;
+      this.setCurrentPageData();
+    },
+    setCurrentPageData() {
+      let begin = this.pageSize * (this.currentPage - 1);
+      let end = this.pageSize * this.currentPage;
+      this.currentPageData = this.totalData.slice(begin, end);
+    },
+    curPage(index) {
+      this.getPage(index);
+    },
+    prePage() {
+      if (this.currentPage <= 1) return;
+      this.getPage(this.currentPage - 1);
+    },
+    nextPage() {
+      if (this.currentPage >= this.totalPage) return;
+
+      this.getPage(this.currentPage + 1);
+    },
+  },
 };
 </script>
 
-<style lang="">
+<style>
 /* 标题部分 */
 
 .bgi {
@@ -75,17 +138,24 @@ export default {
 
 .bgi .title {
   position: absolute;
-  top: 100px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   color: #ffffff;
   font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+  .bgi {
+    height: 150px;
+  }
 }
 
 .bgi .title p:first-of-type {
   font-size: 40px;
   margin-bottom: 8px;
 }
+
 /* 产品区域 */
 
 .pdcs {
@@ -114,9 +184,8 @@ export default {
 }
 
 .pdcs li .pdcImg img {
-  height: auto;
+  height: 260px;
   width: 373px;
-  margin-top: -39px;
   transition: all 0.7s;
 }
 
@@ -128,6 +197,9 @@ export default {
   font-size: 15px;
   text-align: center;
   padding: 9px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .pdcs li .pdcname:hover {
