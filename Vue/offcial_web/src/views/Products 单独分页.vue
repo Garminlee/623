@@ -27,32 +27,29 @@
               </li>
             </ul>
           </div>
-        </div>
-        <nav aria-label="Page navigation">
-          <ul class="pagination">
-            <li @click="prePage" :class="currentPage <= 1 ? 'disabled' : ''">
-              <a aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-              </a>
-            </li>
-            <li
-              v-for="index in totalPage"
-              :class="currentPage == index ? 'active' : ''"
-              @click="curPage(index)"
-            >
-              <a>{{ index }}</a>
-            </li>
+          <nav aria-label="Page navigation">
+            <ul class="pagination">
+              <li @click="prePage">
+                <a aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li
+                v-for="index in totalPage"
+                :class="currentPage == index ? 'active' : ''"
+                @click="curPage(index)"
+              >
+                <a>{{ index }}</a>
+              </li>
 
-            <li
-              @click="nextPage"
-              :class="currentPage >= totalPage ? 'disabled' : ''"
-            >
-              <a aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
+              <li @click="nextPage">
+                <a aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </div>
   </div>
@@ -87,13 +84,22 @@ export default {
   methods: {
     async getData(index) {
       this.currentPage = index || this.currentPage;
-      await this.$store.dispatch("reqPdcsArr", { menuId: 51, pageNum: 1 });
+      await Axios.post("http://master.hogdata.cn/api/article/listByMenu", {
+        menuId: 51,
+        pageNum: 1,
+      })
+        .then((res) => {
+          this.totalData = res.data.data;
+          this.count = res.data.count;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
     async getPage(index) {
       await this.getData(index);
-      this.totalData = this.$store.state.pdcArr;
       // console.log(this.totalData);
-      this.totalPage = Math.ceil(this.totalData.length / this.pageSize);
+      this.totalPage = Math.ceil(this.count / this.pageSize);
       this.totalPage = this.totalPage == 0 ? 1 : this.totalPage;
       this.setCurrentPageData();
     },
